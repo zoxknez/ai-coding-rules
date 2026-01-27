@@ -1,0 +1,36 @@
+name: Bug Report
+description: Report a typo, broken link, or incorrect information
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the documentation!
+        
+  - type: input
+    id: file
+    attributes:
+      label: Affected File(s)
+      description: Which file(s) have the issue?
+      placeholder: "global_rules.md"
+    validations:
+      required: true
+      
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What's wrong?
+      placeholder: "There's a typo in line X..."
+    validations:
+      required: true
+      
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested Fix
+      description: How should it be fixed?
+      placeholder: "Change X to Y..."
+    validations:
+      required: false
