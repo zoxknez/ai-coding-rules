@@ -1,9 +1,6 @@
-# GitHub Copilot Instructions
+# Canonical AI Coding Instructions (Premium)
 
-> Place this file at `.github/copilot-instructions.md` in your repository.
-> Synced from `prompts/vibe-coding-instructions.md`.
-
----
+> This is the single source of truth. Sync/copy into tool-specific instruction files.
 
 ## Core Contract
 - Correctness > simplicity > consistency > style.
@@ -11,8 +8,6 @@
 - Ask when ambiguous (assumptions ledger + max 3 questions).
 - Test‑first loop: failing test → green → refactor.
 - No secrets or PII in code/logs.
-
----
 
 ## Output Format
 - PLAN (max 10 lines)
@@ -22,15 +17,11 @@
 - VERIFICATION (commands + manual checks)
 - NOTES (tradeoffs/risks)
 
----
-
 ## Stop Triggers
 - Security implication
 - Data loss
 - Breaking change
 - >3 files or >200 LOC without approval
-
----
 
 ## References
 - MASTER_RULES.md

@@ -19,6 +19,7 @@ Brief description of changes.
 - [ ] I've included concrete examples (if applicable)
 - [ ] Formatting is consistent with existing docs
 - [ ] I've tested any links I added
+- [ ] If I edited instruction files, I synced from `prompts/vibe-coding-instructions.md`
 
 ## Related Issue
 

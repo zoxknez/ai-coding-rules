@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Ensure canonical instructions are synced before commit
+bash scripts/sync_instructions.sh
+
+if [[ -n "$(git status --porcelain)" ]]; then
+  echo "Instruction files are out of sync with prompts/vibe-coding-instructions.md" >&2
+  git --no-pager diff
+  exit 1
+fi

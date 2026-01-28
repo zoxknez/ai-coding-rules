@@ -1,0 +1,25 @@
+name: Sync Instructions Check
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+
+jobs:
+  check-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync canonical instructions
+        run: bash scripts/sync_instructions.sh
+
+      - name: Fail if out of sync
+        run: |
+          git status --porcelain
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Instruction files are out of sync with prompts/vibe-coding-instructions.md"
+            git --no-pager diff
+            exit 1
+          fi

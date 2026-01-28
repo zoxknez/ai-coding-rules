@@ -1,0 +1,15 @@
+{
+  "framework": "astro",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  },
+  "env": {
+    "DATABASE_URL": "@database_url"
+  }
+}

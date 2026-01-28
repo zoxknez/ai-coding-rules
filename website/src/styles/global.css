@@ -1,0 +1,170 @@
+/* Import local fonts (no FOIT) */
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/inter/900.css';
+@import '@fontsource/fira-code/400.css';
+
+@import "tailwindcss";
+
+/* Tailwind v4 Custom Theme */
+@theme {
+  /* Brand Colors */
+  --color-primary: #6366f1;
+  --color-secondary: #06b6d4;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  
+  /* Slate Palette for Dark Theme */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+  
+  /* Indigo Palette */
+  --color-indigo-400: #818cf8;
+  --color-indigo-500: #6366f1;
+  --color-indigo-600: #4f46e5;
+  
+  /* Cyan Palette */
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-cyan-600: #0891b2;
+  
+  /* Red Palette */
+  --color-red-300: #fca5a5;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  
+  /* Amber Palette */
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  
+  /* Emerald Palette */
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-500: #10b981;
+  
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  
+  /* Animations */
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.2); }
+  100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.6); }
+}
+
+@keyframes gradient {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-slate-50 font-sans antialiased;
+  }
+  
+  h1 {
+    @apply text-5xl md:text-7xl font-bold;
+    background: linear-gradient(to right, #6366f1, #06b6d4, #6366f1);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s ease infinite;
+  }
+  
+  h2 {
+    @apply text-4xl font-bold;
+  }
+  
+  h3 {
+    @apply text-2xl font-bold;
+  }
+  
+  code {
+    @apply font-mono text-sm bg-slate-800 px-1.5 py-0.5 rounded;
+  }
+  
+  pre {
+    @apply font-mono text-sm bg-slate-950 p-4 rounded-lg overflow-x-auto;
+  }
+}
+
+/* Custom component classes (Tailwind v4) */
+.glass {
+  background-color: rgb(255 255 255 / 0.05);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.glow {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.glow:hover {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+}
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  background-color: #6366f1;
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: rgb(99 102 241 / 0.9);
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.btn-glass {
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(255 255 255 / 0.05);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-glass:hover {
+  background-color: rgb(255 255 255 / 0.1);
+  transform: scale(1.05);
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(to right, #6366f1, #06b6d4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #6366f1, #06b6d4);
+  }
+}

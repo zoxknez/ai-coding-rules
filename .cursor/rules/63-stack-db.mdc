@@ -1,0 +1,16 @@
+---
+description: "USE WHEN: editing SQL, migrations, or DB schema."
+globs: ["db/**","migrations/**","**/*.sql"]
+alwaysApply: false
+priority: 40
+---
+
+# Database Rules
+
+## Migrations
+- Use transactions where supported.
+- Ensure down migrations are safe or explicitly irreversible.
+
+## Queries
+- Prefer parameterized queries.
+- Document performance‑critical queries.

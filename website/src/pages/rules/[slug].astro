@@ -1,0 +1,200 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const rules = await getCollection('rules');
+  return rules.map(rule => ({
+    params: { slug: rule.slug },
+    props: { rule },
+  }));
+}
+
+interface Props {
+  rule: CollectionEntry<'rules'>;
+}
+
+const { rule } = Astro.props;
+const { Content } = await rule.render();
+
+// Get related rules
+const allRules = await getCollection('rules');
+const relatedRules = rule.data.relatedRules
+  ? allRules.filter(r => rule.data.relatedRules?.includes(r.slug))
+  : [];
+
+// Impact badge colors
+const impactColors = {
+  critical: 'bg-red-500/20 text-red-400 border-red-500/30',
+  high: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+  medium: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
+  low: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+};
+
+// Complexity badge colors
+const complexityColors = {
+  high: 'bg-red-500/10 text-red-300',
+  medium: 'bg-amber-500/10 text-amber-300',
+  low: 'bg-emerald-500/10 text-emerald-300',
+};
+---
+
+<Layout title={rule.data.title} description={rule.data.description}>
+  <main class="min-h-screen py-20 px-4">
+    <article class="max-w-4xl mx-auto">
+      <!-- Back Button -->
+      <a href="/rules" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 mb-8 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Rules
+      </a>
+
+      <!-- Header -->
+      <header class="mb-12">
+        <!-- Meta Badges -->
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <span class={`px-4 py-2 rounded-full text-sm font-bold border ${impactColors[rule.data.impact]}`}>
+            {rule.data.impact.toUpperCase()} IMPACT
+          </span>
+          <span class={`px-4 py-2 rounded-full text-sm font-semibold ${complexityColors[rule.data.complexity]}`}>
+            {rule.data.complexity} complexity
+          </span>
+          <span class="px-4 py-2 bg-slate-800 rounded-full text-sm">
+            {rule.data.category}
+          </span>
+        </div>
+
+        <!-- Title & Description -->
+        <h1 class="mb-6">{rule.data.title}</h1>
+        <p class="text-xl text-slate-300 leading-relaxed">
+          {rule.data.description}
+        </p>
+
+        <!-- Tags -->
+        {rule.data.tags && rule.data.tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mt-6">
+            {rule.data.tags.map(tag => (
+              <span class="px-3 py-1 bg-slate-800/50 rounded-full text-sm text-slate-400">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <!-- Content -->
+      <div class="prose prose-invert prose-lg max-w-none mb-16">
+        <Content />
+      </div>
+
+      <!-- Related Rules -->
+      {relatedRules.length > 0 && (
+        <section class="glass p-8 rounded-xl">
+          <h2 class="text-2xl font-bold mb-6">Related Rules</h2>
+          <div class="grid gap-4">
+            {relatedRules.map(related => (
+              <a 
+                href={`/rules/${related.slug}`}
+                class="glass p-6 rounded-lg hover:scale-102 transition-all block"
+              >
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="text-xl font-bold mb-2 text-gradient">
+                      {related.data.title}
+                    </h3>
+                    <p class="text-slate-300 text-sm">
+                      {related.data.description}
+                    </p>
+                  </div>
+                  <span class={`px-3 py-1 rounded-full text-xs font-bold border shrink-0 ${impactColors[related.data.impact]}`}>
+                    {related.data.impact}
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- CTA -->
+      <div class="mt-16 text-center">
+        <a href="/rules" class="btn-glass inline-block">
+          Browse All Rules →
+        </a>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  /* Prose customization for Shiki code blocks */
+  :global(.prose pre) {
+    @apply bg-slate-950 border border-slate-800 rounded-lg;
+  }
+
+  :global(.prose code) {
+    @apply bg-slate-800 px-1.5 py-0.5 rounded text-cyan-400;
+  }
+
+  :global(.prose pre code) {
+    @apply bg-transparent p-0 text-slate-50;
+  }
+
+  :global(.prose h2) {
+    @apply text-3xl font-bold mt-12 mb-6 text-slate-50;
+  }
+
+  :global(.prose h3) {
+    @apply text-2xl font-bold mt-8 mb-4 text-slate-50;
+  }
+
+  :global(.prose h4) {
+    @apply text-xl font-semibold mt-6 mb-3 text-slate-200;
+  }
+
+  :global(.prose p) {
+    @apply text-slate-300 leading-relaxed mb-6;
+  }
+
+  :global(.prose ul, .prose ol) {
+    @apply text-slate-300 space-y-2 mb-6;
+  }
+
+  :global(.prose li) {
+    @apply leading-relaxed;
+  }
+
+  :global(.prose blockquote) {
+    @apply border-l-4 border-cyan-500 pl-6 italic text-slate-300 my-8;
+  }
+
+  :global(.prose table) {
+    @apply w-full border-collapse mb-8;
+  }
+
+  :global(.prose th) {
+    @apply bg-slate-800 px-4 py-3 text-left font-semibold text-slate-200 border border-slate-700;
+  }
+
+  :global(.prose td) {
+    @apply px-4 py-3 border border-slate-700 text-slate-300;
+  }
+
+  :global(.prose a) {
+    @apply text-cyan-400 hover:text-cyan-300 transition-colors underline decoration-cyan-500/30 hover:decoration-cyan-500;
+  }
+
+  :global(.prose strong) {
+    @apply text-slate-50 font-semibold;
+  }
+
+  :global(.prose em) {
+    @apply text-slate-300 italic;
+  }
+
+  /* Shiki syntax highlighting - uses inline styles from Astro */
+  :global(.prose .astro-code) {
+    @apply text-sm leading-relaxed;
+  }
+</style>

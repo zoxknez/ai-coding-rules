@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/yourusername/ai-coding-rules/issues)
+[![Sync Instructions Check](https://github.com/zoxknez/ai-coding-rules/actions/workflows/sync-instructions.yml/badge.svg)](https://github.com/zoxknez/ai-coding-rules/actions/workflows/sync-instructions.yml)
 
 ---
 
@@ -27,15 +28,31 @@ Copy [`MASTER_RULES.md`](./MASTER_RULES.md) into your AI assistant's project rul
 
 | Platform | File | Where to put it |
 |----------|------|-----------------|
-| **GitHub Copilot** | [`copilot-instructions.md`](./copilot-instructions.md) | `.github/copilot-instructions.md` |
+| **GitHub Copilot** | [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) | `.github/copilot-instructions.md` |
 | **Cursor** | [`cursor-rules.md`](./cursor-rules.md) | `.cursor/rules` or `.cursorrules` |
 | **Claude** | [`claude-instructions.md`](./claude-instructions.md) | Project custom instructions |
 
-### Option 3: Full Setup
+### Option 3: Modular Cursor (Premium)
+Use the `.cursor/rules/*.mdc` set for conditional, context-aware rule activation.
+
+### Option 4: Full Setup
 1. Add `global_rules.md` + `ai_model_contract.md` to project rules
 2. Fill out `project_profile.md` for your repo
 3. Use `task_template.md` for every task
 4. Pick relevant `stack_*.md` guides
+5. Use `prompts/vibe-coding-instructions.md` as the canonical source
+
+### Option 5: Sync Canonical → Platform Files
+Use the scripts to keep platform-specific instruction files in sync.
+
+- Windows (PowerShell): `scripts/sync_instructions.ps1`
+- macOS/Linux (Bash): `scripts/sync_instructions.sh`
+
+### Option 6: Pre-Commit Guard (Recommended)
+Install repo-local git hooks to prevent commits when instructions are out of sync.
+
+- Windows (PowerShell): `scripts/install_git_hooks.ps1`
+- macOS/Linux (Bash): `scripts/install_git_hooks.sh`
 
 ---
 
@@ -44,7 +61,12 @@ Copy [`MASTER_RULES.md`](./MASTER_RULES.md) into your AI assistant's project rul
 ```
 ai-coding-rules/
 ├── 🎯 MASTER_RULES.md           # All-in-one (start here!)
+├── 🧱 MONOREPO_RULES.md          # Unified single source of truth (monorepo)
 ├── 📖 README.md                  # This file
+├── 🌐 LANGUAGE_POLICY.md         # English-only content policy
+├── 🧠 MEMORY_BANK.md             # Long-term context (template)
+├── 🤖 AGENTS.md                  # Agent operating rules (template)
+├── ✅ TASK_LIST.md               # Task tracking (template)
 │
 ├── 🔴 Core Rules
 │   ├── global_rules.md           # Operating principles
@@ -73,6 +95,7 @@ ai-coding-rules/
 ├── ⚪ Operations
 │   ├── context_management.md     # How to pack context
 │   ├── security_privacy.md       # Security guardrails
+│   ├── SECURITY_PRIVACY_BASELINE.md
 │   ├── incident_response.md      # When AI breaks things
 │   ├── team_workflows.md         # Team processes
 │   └── tool_integration.md       # CI/CD setup
@@ -81,6 +104,28 @@ ai-coding-rules/
 │   ├── copilot-instructions.md   # GitHub Copilot
 │   ├── cursor-rules.md           # Cursor
 │   └── claude-instructions.md    # Claude Projects
+
+├── 🧭 GitHub Instructions
+│   ├── .github/copilot-instructions.md
+│   └── .github/instructions/*.instructions.md
+
+├── 🧩 Cursor Modular Rules
+│   └── .cursor/rules/*.mdc        # Conditional rule activation
+
+├── 🧪 Canonical Prompt Source
+│   └── prompts/vibe-coding-instructions.md
+
+├── 🧹 Guardrails
+│   └── ANTI_SLOP_GUARDRAILS.md
+
+├── 🔁 Sync Scripts
+│   ├── scripts/sync_instructions.ps1
+│   └── scripts/sync_instructions.sh
+
+├── 🧷 Git Hooks (optional)
+│   ├── .githooks/pre-commit
+│   ├── scripts/install_git_hooks.ps1
+│   └── scripts/install_git_hooks.sh
 │
 └── 📊 report.md                  # Full analysis
 ```
@@ -115,6 +160,14 @@ ai-coding-rules/
 | **Three-phase pattern** | Naive → Correct → Optimize |
 | **Test-first loop** | Leverages AI stamina |
 | **Pushback protocol** | Prevents bad decisions |
+
+---
+
+## ✅ CI Status
+
+This repo enforces instruction sync between the canonical prompt and platform files.
+
+- Sync workflow: [Sync Instructions Check](https://github.com/zoxknez/ai-coding-rules/actions/workflows/sync-instructions.yml)
 
 ---
 

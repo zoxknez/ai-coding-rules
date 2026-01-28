@@ -88,6 +88,7 @@ Help make this accessible in more languages:
 - [ ] I've included concrete examples
 - [ ] Formatting is consistent with existing docs
 - [ ] I've tested any links I added
+- [ ] If I edited instruction files, I synced from `prompts/vibe-coding-instructions.md`
 
 ### What Makes a Good PR
 
@@ -102,6 +103,27 @@ Help make this accessible in more languages:
 - Purely theoretical rules (not tested)
 - Breaking existing formatting
 - Adding complexity without clear benefit
+- Editing platform instruction files directly without syncing from the canonical prompt
+
+---
+
+## Canonical Instructions (Single Source of Truth)
+
+All platform instruction files are generated from:
+
+- `prompts/vibe-coding-instructions.md`
+
+If you change instructions, update the canonical file and run the sync script:
+
+- Windows (PowerShell): `scripts/sync_instructions.ps1`
+- macOS/Linux (Bash): `scripts/sync_instructions.sh`
+
+### Optional: Pre-Commit Guard
+
+Install repo-local git hooks to prevent commits when instructions are out of sync:
+
+- Windows (PowerShell): `scripts/install_git_hooks.ps1`
+- macOS/Linux (Bash): `scripts/install_git_hooks.sh`
 
 ---
 
@@ -134,6 +156,7 @@ code blocks for longer examples
 - **Be practical** — prefer "do this" over "consider doing"
 - **Use examples** — show, don't just tell
 - **Be specific** — "~200 LOC" is better than "keep it small"
+- **English only** — all docs and rules must be written in English
 
 ### Emoji Usage
 

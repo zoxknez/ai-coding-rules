@@ -1,0 +1,22 @@
+---
+description: "USE WHEN: working on TypeScript/React frontend."
+globs: ["**/*.ts","**/*.tsx","src/**/*.ts","src/**/*.tsx","app/**/*.tsx","components/**/*.tsx"]
+alwaysApply: false
+priority: 40
+---
+
+# Frontend (TypeScript/React)
+
+## Type Safety
+- Ban `any`.
+- Prefer `interface` where appropriate.
+
+## React Style
+- Functional components + hooks only.
+- Avoid unnecessary state; prefer reducer/context for complex state.
+
+## Exports
+- Prefer named exports over default exports.
+
+## Performance
+- Avoid unnecessary re-renders; memoize only when justified.

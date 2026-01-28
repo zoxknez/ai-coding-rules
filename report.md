@@ -123,6 +123,117 @@ If still failing, escalate
 
 ---
 
+## Arhitektura i optimizacija sistema pravila (premium dodatak)
+
+### Executive Summary (za 90 sekundi)
+Savršen sistem pravila nije „fajl sa savetima“, već **dinamički operativni sloj** za AI agente. Optimalna forma je modularna, uslovno aktivirana i duboko usklađena sa tehnološkim stekom, bezbednošću i procesima tima. Rezultat je: manje šuma u kontekstu, veća preciznost i stabilniji output.
+
+### A) Evolucija: monolitna → modularna pravila
+- Migracija sa legacy `.cursorrules` na `.cursor/rules/*.mdc`.
+- Uslovna aktivacija preko `globs` smanjuje kontekstni „noise“ i povećava tačnost.
+- Frontmatter metapodaci omogućavaju automatizovanu selekciju pravila po domenu.
+
+**Preporuka:** kompletan prelazak na `.mdc` i mapiranje pravila na realne putanje/folder logiku.
+
+### B) Inženjering metapodataka (pravila koja „pogađaju“ kontekst)
+**Gold standard za `description`:** kratko, aktivno, sa prefiksom **USE WHEN**.
+Primeri:
+- **USE WHEN:** kreiraš/menjaš React UI komponente.
+- **USE WHEN:** dodaješ DB migracije ili menjaš šemu.
+- **USE WHEN:** pišeš testove ili refaktorišeš kritične module.
+
+**Zašto radi:** Agent odlučuje koje pravilo da aktivira, pa opis mora biti kognitivni „okidač“.
+
+### C) Tehnološki specifična pravila (preciznost, ne generičnost)
+**Python / FastAPI**
+- Obavezni Pydantic v2 modeli (bez „sirovih“ dict-ova).
+- `async def` za I/O operacije + preferenca `asyncpg` u DB sloju.
+
+**TypeScript / React**
+- Zabraniti `any`; preferirati `interface` gde je prikladno.
+- Isključivo funkcionalne komponente + hooks.
+- Preferirati named exports; jasne konvencije imenovanja direktorijuma.
+
+**Ruby / DragonRuby**
+- Ruby Style Guide kao baseline.
+- Idiomatske konstrukcije (`unless`, `||=`, `&.`).
+- Snake_case fajlovi/metode, CamelCase klase/module.
+
+### D) MCP kao dinamički kontekst (AI „sense layer“)
+Pravila moraju eksplicitno reći **kada** i **kako** se koriste MCP serveri.
+Primer: „Pre implementacije nove funkcionalnosti, preuzmi zahtev iz Jira i proveri aktivne PR-ove preko GitHub MCP.”
+
+### E) Optimizacija po modelu
+- **Claude 3.5 Sonnet:** detaljnije instrukcije, viši nivo „reasoning“ strukture.
+- **GPT-4o:** konciznije instrukcije, fokus na performanse i few-shot primere.
+
+### F) Smanjenje halucinacija i korektnost
+- Nema preambule, nema „učtivih“ viškova.
+- Ako postoji neizvesnost: agent traži potvrdu pre implementacije.
+- Zabranjeni „drive‑by refactor“-i.
+
+### G) TDD + Guard Clauses (stil koji smanjuje greške)
+- Test-first kao standardni tok.
+- Guard clauses i early returns radi smanjenja nesting-a.
+
+$$\text{Efikasnost} = \frac{\text{Broj asinhronih poziva}}{\text{Ukupan broj mrežnih poziva}} \times 100$$
+
+### H) Bezbednost i privatnost (obavezni stub)
+- Zabranjeno hardkodiranje tajni; koristiti env varijable/secret manager.
+- Zabranjeno logovanje PII.
+- Validacija inputa obavezna (Zod / Pydantic).
+
+### I) „Memory Bank“ i dugoročni kontekst
+- Uvesti `MEMORY_BANK.md` i/ili `AGENTS.md` kao jedinstveni izvor istine.
+- Nakon svake završene promene: ažurirati odluke i naučene lekcije.
+
+### J) Standardizacija među alatima (kanonski izvor istine)
+- Jedan kanonski fajl (npr. `prompts/vibe-coding-instructions.md`).
+- Sinhronizacija prema `.cursorrules`, `CLAUDE.md`, `.clinerules`, `.windsurfrules`.
+
+### K) Upravljački model + CI integracije
+- Definisati „Rule Steward“ za review/validaciju.
+- Pravila postaju deo CI-a: lint/format/test pipeline blokira odstupanja.
+
+---
+
+### Premium šablon za `.mdc` pravilo
+```
+---
+description: "USE WHEN: ..."
+globs: ["path/pattern/**"]
+alwaysApply: false
+priority: 50
+---
+
+# Rule Title
+
+## Do
+- ...
+
+## Don't
+- ...
+
+## Examples
+- ✅ ...
+- ❌ ...
+```
+
+### Premium kontrolna lista pre commita
+1. Da li su aktivirana samo relevantna pravila?
+2. Da li postoji test koji potvrđuje novu logiku?
+3. Da li su izbegnute nebitne promene (minimal diff)?
+4. Da li su svi eksterni ulazi validirani?
+5. Da li su tajne/PII zaštićeni?
+
+### Premium roadmap (4 iteracije)
+1. **Migracija na `.mdc`** + mapiranje `globs`.
+2. **Tehnološki specifična pravila** (Python/TS/Ruby).
+3. **MCP integracije** + zaštitne politike.
+4. **CI enforcement** + rule governance.
+
+---
+
 ## Conclusion
 
 AI is a powerful multiplier, but requires strict rules:

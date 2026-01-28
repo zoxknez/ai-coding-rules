@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MeshViewer from '../components/MeshViewer';
+import { getCollection } from 'astro:content';
+import { useStore } from '@nanostores/react';
+import { selectedNode } from '../stores/mesh';
+
+const allRules = await getCollection('rules');
+
+// Generate 3D positions for rules (distribute in sphere)
+const ruleNodes = allRules.map((rule, index) => {
+  const phi = Math.acos(-1 + (2 * index) / allRules.length);
+  const theta = Math.sqrt(allRules.length * Math.PI) * phi;
+  
+  const radius = 10;
+  const x = radius * Math.cos(theta) * Math.sin(phi);
+  const y = radius * Math.sin(theta) * Math.sin(phi);
+  const z = radius * Math.cos(phi);
+
+  return {
+    id: rule.slug,
+    title: rule.data.title,
+    category: rule.data.category,
+    impact: rule.data.impact,
+    position: [x, y, z] as [number, number, number],
+    connections: rule.data.relatedRules || [],
+  };
+});
+
+// Impact badge colors
+const impactColors = {
+  critical: 'bg-red-500/20 text-red-400 border-red-500/30',
+  high: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+  medium: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
+  low: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+};
+---
+
+<Layout title="3D Rule Mesh" description="Interactive 3D visualization of AI coding rules and their relationships">
+  <main class="min-h-screen py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="mb-6">3D Rule Mesh</h1>
+        <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+          Explore the interconnected web of AI coding rules.
+          <br class="hidden md:block"/>
+          Click nodes to view details. Filter by category.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- 3D Viewer (2/3 width on large screens) -->
+        <div class="lg:col-span-2">
+          <div class="glass rounded-xl overflow-hidden">
+            <MeshViewer rules={ruleNodes} client:visible />
+          </div>
+        </div>
+
+        <!-- Details Panel (1/3 width on large screens) -->
+        <div class="lg:col-span-1">
+          <div id="details-panel" class="glass p-6 rounded-xl sticky top-20">
+            <h2 class="text-2xl font-bold mb-4">Rule Details</h2>
+            <p class="text-slate-400 text-sm mb-6" id="default-message">
+              Click a node in the mesh to view details.
+            </p>
+
+            <!-- Dynamic content populated by React -->
+            <div id="rule-details" class="hidden">
+              {allRules.map(rule => (
+                <div 
+                  data-rule-id={rule.slug}
+                  class="rule-detail hidden"
+                >
+                  <!-- Meta Badges -->
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class={`px-3 py-1 rounded-full text-xs font-bold border ${impactColors[rule.data.impact]}`}>
+                      {rule.data.impact.toUpperCase()}
+                    </span>
+                    <span class="px-3 py-1 bg-slate-800 rounded-full text-xs">
+                      {rule.data.category}
+                    </span>
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="text-xl font-bold mb-3 text-gradient">
+                    {rule.data.title}
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-300 mb-6">
+                    {rule.data.description}
+                  </p>
+
+                  <!-- Tags -->
+                  {rule.data.tags && rule.data.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mb-6">
+                      {rule.data.tags.map(tag => (
+                        <span class="px-2 py-1 bg-slate-800/50 rounded text-xs text-slate-400">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <!-- Actions -->
+                  <div class="flex gap-3">
+                    <a 
+                      href={`/rules/${rule.slug}`}
+                      class="btn-primary text-sm flex-1 text-center"
+                    >
+                      View Full Rule
+                    </a>
+                  </div>
+
+                  <!-- Related Rules -->
+                  {rule.data.relatedRules && rule.data.relatedRules.length > 0 && (
+                    <div class="mt-6 pt-6 border-t border-white/10">
+                      <h4 class="text-sm font-semibold mb-3 text-slate-400">Related Rules</h4>
+                      <ul class="space-y-2">
+                        {rule.data.relatedRules.map(relatedSlug => {
+                          const relatedRule = allRules.find(r => r.slug === relatedSlug);
+                          return relatedRule && (
+                            <li>
+                              <a 
+                                href={`/rules/${relatedSlug}`}
+                                class="text-sm text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-2"
+                              >
+                                <span>→</span>
+                                <span>{relatedRule.data.title}</span>
+                              </a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+        <div class="glass p-6 rounded-xl text-center">
+          <div class="text-4xl font-bold text-indigo-500 mb-2">{allRules.length}</div>
+          <div class="text-sm text-slate-400">Total Rules</div>
+        </div>
+        <div class="glass p-6 rounded-xl text-center">
+          <div class="text-4xl font-bold text-cyan-500 mb-2">
+            {new Set(allRules.map(r => r.data.category)).size}
+          </div>
+          <div class="text-sm text-slate-400">Categories</div>
+        </div>
+        <div class="glass p-6 rounded-xl text-center">
+          <div class="text-4xl font-bold text-amber-500 mb-2">
+            {allRules.filter(r => r.data.impact === 'critical').length}
+          </div>
+          <div class="text-sm text-slate-400">Critical Impact</div>
+        </div>
+        <div class="glass p-6 rounded-xl text-center">
+          <div class="text-4xl font-bold text-emerald-500 mb-2">
+            {allRules.flatMap(r => r.data.relatedRules || []).length}
+          </div>
+          <div class="text-sm text-slate-400">Connections</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  import { selectedNode } from '../stores/mesh';
+
+  // Listen to selectedNode changes
+  selectedNode.subscribe((nodeId) => {
+    const defaultMessage = document.getElementById('default-message');
+    const ruleDetails = document.getElementById('rule-details');
+    const allDetails = document.querySelectorAll('.rule-detail');
+
+    if (nodeId) {
+      // Hide default message
+      if (defaultMessage) defaultMessage.classList.add('hidden');
+      if (ruleDetails) ruleDetails.classList.remove('hidden');
+
+      // Show selected rule details
+      allDetails.forEach(detail => {
+        const detailElement = detail as HTMLElement;
+        if (detailElement.dataset.ruleId === nodeId) {
+          detailElement.classList.remove('hidden');
+        } else {
+          detailElement.classList.add('hidden');
+        }
+      });
+    } else {
+      // Show default message
+      if (defaultMessage) defaultMessage.classList.remove('hidden');
+      if (ruleDetails) ruleDetails.classList.add('hidden');
+    }
+  });
+</script>

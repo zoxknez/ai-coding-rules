@@ -1,0 +1,192 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allRules = await getCollection('rules');
+
+// Sort by impact (critical first), then by category
+const sortedRules = allRules.sort((a, b) => {
+  const impactOrder = { critical: 0, high: 1, medium: 2, low: 3 };
+  const impactDiff = impactOrder[a.data.impact] - impactOrder[b.data.impact];
+  if (impactDiff !== 0) return impactDiff;
+  return a.data.category.localeCompare(b.data.category);
+});
+
+const categories = [...new Set(allRules.map(r => r.data.category))];
+
+// Impact badge colors
+const impactColors = {
+  critical: 'bg-red-500/20 text-red-400 border-red-500/30',
+  high: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+  medium: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
+  low: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+};
+
+// Complexity badge colors
+const complexityColors = {
+  high: 'bg-red-500/10 text-red-300',
+  medium: 'bg-amber-500/10 text-amber-300',
+  low: 'bg-emerald-500/10 text-emerald-300',
+};
+---
+
+<Layout title="AI Coding Rules" description="Browse all battle-tested rules for AI-assisted development">
+  <main class="min-h-screen py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h1 class="mb-6">AI Coding Rules</h1>
+        <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+          Battle-tested rules from Karpathy insights + production teams.
+          <br class="hidden md:block"/>
+          Filter by category, complexity, or impact.
+        </p>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="mb-12 flex flex-wrap gap-3 justify-center">
+        <button class="category-filter active px-6 py-2 glass rounded-full font-semibold transition-all hover:scale-105" data-category="all">
+          All Rules ({allRules.length})
+        </button>
+        {categories.map(cat => {
+          const count = allRules.filter(r => r.data.category === cat).length;
+          return (
+            <button class="category-filter px-6 py-2 glass rounded-full font-semibold transition-all hover:scale-105" data-category={cat}>
+              {cat} ({count})
+            </button>
+          );
+        })}
+      </div>
+
+      <!-- Search Bar -->
+      <div class="mb-12 max-w-2xl mx-auto">
+        <input 
+          type="text" 
+          id="search-input"
+          placeholder="Search rules... (e.g., 'testing', 'security', 'minimal diff')"
+          class="w-full px-6 py-4 glass rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Rules Grid -->
+      <div id="rules-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedRules.map(rule => (
+          <a 
+            href={`/rules/${rule.slug}`}
+            class="rule-card glass p-6 rounded-xl hover:scale-105 transition-all block"
+            data-category={rule.data.category}
+            data-tags={rule.data.tags?.join(',') || ''}
+            data-title={rule.data.title.toLowerCase()}
+            data-description={rule.data.description.toLowerCase()}
+          >
+            <!-- Impact Badge -->
+            <div class="flex items-center gap-2 mb-4">
+              <span class={`px-3 py-1 rounded-full text-xs font-bold border ${impactColors[rule.data.impact]}`}>
+                {rule.data.impact.toUpperCase()}
+              </span>
+              <span class={`px-3 py-1 rounded-full text-xs ${complexityColors[rule.data.complexity]}`}>
+                {rule.data.complexity}
+              </span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-2xl font-bold mb-3 text-gradient">
+              {rule.data.title}
+            </h3>
+
+            <!-- Description -->
+            <p class="text-slate-300 mb-4">
+              {rule.data.description}
+            </p>
+
+            <!-- Category Tag -->
+            <div class="flex items-center gap-2 text-sm text-slate-400">
+              <span class="px-3 py-1 bg-slate-800 rounded-full">
+                {rule.data.category}
+              </span>
+              {rule.data.tags?.slice(0, 2).map(tag => (
+                <span class="px-3 py-1 bg-slate-800/50 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- No Results Message -->
+      <div id="no-results" class="hidden text-center py-20">
+        <div class="text-6xl mb-4">🔍</div>
+        <h3 class="text-2xl font-bold mb-2">No rules found</h3>
+        <p class="text-slate-400">Try a different category or search term.</p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Category filter
+  const categoryButtons = document.querySelectorAll('.category-filter');
+  const ruleCards = document.querySelectorAll('.rule-card');
+  const noResults = document.getElementById('no-results');
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+
+  let activeCategory = 'all';
+  let searchTerm = '';
+
+  function filterRules() {
+    let visibleCount = 0;
+
+    ruleCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      const cardTitle = card.getAttribute('data-title') || '';
+      const cardDescription = card.getAttribute('data-description') || '';
+      const cardTags = card.getAttribute('data-tags') || '';
+
+      const categoryMatch = activeCategory === 'all' || cardCategory === activeCategory;
+      const searchMatch = searchTerm === '' || 
+        cardTitle.includes(searchTerm) || 
+        cardDescription.includes(searchTerm) ||
+        cardTags.includes(searchTerm);
+
+      if (categoryMatch && searchMatch) {
+        (card as HTMLElement).style.display = 'block';
+        visibleCount++;
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+
+    // Show/hide no results message
+    if (noResults) {
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  categoryButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active state
+      categoryButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Update filter
+      activeCategory = btn.getAttribute('data-category') || 'all';
+      filterRules();
+    });
+  });
+
+  searchInput?.addEventListener('input', (e) => {
+    searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+    filterRules();
+  });
+
+  // Add active state styles
+  const style = document.createElement('style');
+  style.textContent = `
+    .category-filter.active {
+      background-color: rgb(99 102 241 / 0.2);
+      border: 1px solid rgb(99 102 241 / 0.5);
+    }
+  `;
+  document.head.appendChild(style);
+</script>
