@@ -18,6 +18,12 @@
 - 
 
 ## Recent Changes
+- **v4.3.0:** Added Skills System, Universal Rule Format, and STRICT Mode:
+  - Skills System: `.claude/skills/` with code-review, security-audit, refactor-plan, rigor-audit
+  - Universal Rule Format: `UNIVERSAL_RULE_FORMAT.md` for cross-platform rules (RDL spec)
+  - STRICT Mode: `STRICT_MODE.md` with non-negotiable enforcement rules
+  - Testable Rules: `examples/rule-tests/` with security and quality test cases
+  - Inspired by mamut-lab and aicodingrules.org
 - **v4.2.0:** Added comprehensive multi-platform AI assistant support:
   - GitHub Copilot: Terminal warning, testing/security/python/docs instructions
   - Claude Code: Expanded CLAUDE.md, added .claude/rules/ with 5 modular rules

@@ -6,6 +6,61 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.3.0] - 2025-01-28
+
+### Added — Skills System, Universal Rule Format & STRICT Mode
+
+**Problem Addressed:** Need for structured output templates (skills), cross-platform rule standardization, and non-negotiable rule enforcement.
+
+**Inspired By:**
+- [mamut-lab](https://github.com/orange-dot/mamut-lab) — Claude skills system with structured outputs
+- [aicodingrules.org](https://aicodingrules.org/) — Proposed universal AI coding rules standard
+
+**Skills System (NEW):**
+Based on mamut-lab patterns, created `.claude/skills/` with structured output templates:
+- **`code-review.md`** — Structured code review with severity ratings
+- **`security-audit.md`** — OWASP Top 10 security scanning
+- **`refactor-plan.md`** — Strategic refactoring with risk assessment
+- **`rigor-audit.md`** — Combined quality audit (code, security, types, tests, docs, perf)
+- **`README.md`** — Skills overview and usage guide
+
+Each skill includes:
+- When to Use triggers
+- What It Checks tables
+- Output Format templates (copy-paste ready)
+- STRICT Mode Rules (non-negotiable)
+- Example input/output
+
+**Universal Rule Format (NEW):**
+- **`UNIVERSAL_RULE_FORMAT.md`** — Cross-platform rule specification inspired by aicodingrules.org
+- RDL (Rule Definition Language) schema with YAML + Markdown
+- Platform mapping: Cursor (.mdc) ↔ Copilot (.instructions.md) ↔ Claude (.md) ↔ Windsurf
+- Sync script template for auto-generating platform files
+- Rule categories: Security (STRICT), Quality, Style
+
+**STRICT Mode Enforcement (NEW):**
+- **`STRICT_MODE.md`** — Non-negotiable rules that cannot be bypassed
+- Security rules: No secrets, SQL injection prevention, auth required
+- Type safety rules: strict: true, no untyped any
+- Data integrity rules: No silent failures, idempotent operations
+- Enforcement matrix across contexts (review, audit, CI, vibe mode)
+
+**Testable Rules (NEW):**
+Created `examples/rule-tests/` with verification test cases:
+- **`security/no-secrets.test.md`** — 10+ test cases for secret detection
+- **`security/sql-injection.test.md`** — SQL injection patterns and safe alternatives
+- **`security/auth-required.test.md`** — Auth/authz test scenarios
+- **`quality/no-any.test.md`** — TypeScript any usage tests
+- **`quality/error-handling.test.md`** — Error handling patterns
+
+Each test file includes:
+- Rule reference metadata
+- ❌ FAIL cases with violations and fixes
+- ✅ PASS cases with explanations
+- Edge cases and detection patterns
+
+---
+
 ## [4.2.0] - 2025-01-28
 
 ### Added — Multi-Platform AI Assistant Support

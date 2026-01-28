@@ -53,6 +53,19 @@ ai-coding-rules/
 │   ├── 63-stack-db.mdc
 │   └── ...
 │
+├── .claude/
+│   ├── rules/                    # Path-specific rules
+│   │   ├── security.md           # Security patterns
+│   │   ├── frontend.md           # React/component rules
+│   │   ├── backend.md            # API patterns
+│   │   ├── testing.md            # Test conventions
+│   │   └── database.md           # SQL/ORM patterns
+│   └── skills/                   # Structured output templates (NEW!)
+│       ├── code-review.md        # Code review simulation
+│       ├── security-audit.md     # OWASP security scanning
+│       ├── refactor-plan.md      # Strategic refactoring
+│       └── rigor-audit.md        # Combined quality audit
+│
 ├── .github/
 │   ├── copilot-instructions.md   # GitHub Copilot config
 │   └── instructions/             # Granular Copilot instructions
@@ -61,6 +74,27 @@ ai-coding-rules/
     ├── sync_instructions.ps1
     └── sync_instructions.sh
 ```
+
+---
+
+## 🎯 Skills System (NEW!)
+
+Use structured skills for consistent outputs:
+
+| Skill | Purpose | Invoke |
+|-------|---------|--------|
+| `code-review` | Structured code review | `/skill:code-review [file]` |
+| `security-audit` | OWASP Top 10 scan | `/skill:security-audit [scope]` |
+| `refactor-plan` | Strategic refactoring | `/skill:refactor-plan [target]` |
+| `rigor-audit` | Combined quality check | `/skill:rigor-audit [scope]` |
+
+Skills provide:
+- Consistent output format
+- Non-negotiable STRICT mode rules
+- Actionable recommendations
+- Example input/output
+
+See `.claude/skills/README.md` for full documentation.
 
 ---
 

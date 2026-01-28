@@ -129,14 +129,26 @@ ai-coding-rules/
 ├── 🧩 Cursor Modular Rules
 │   └── .cursor/rules/*.mdc        # Conditional rule activation
 
-├── � Claude Code
-│   └── CLAUDE.md                  # Claude Code project memory (auto-loaded)
+├── 🤖 Claude Code
+│   ├── CLAUDE.md                  # Claude Code project memory (auto-loaded)
+│   └── .claude/skills/            # Structured output templates (NEW!)
+│       ├── code-review.md         # Code review simulation
+│       ├── security-audit.md      # OWASP security scanning
+│       ├── refactor-plan.md       # Strategic refactoring
+│       └── rigor-audit.md         # Combined quality audit
 
-├── �🧪 Canonical Prompt Source
+├── 📐 Standards (NEW!)
+│   ├── UNIVERSAL_RULE_FORMAT.md   # Cross-platform rule spec (RDL)
+│   └── STRICT_MODE.md             # Non-negotiable enforcement rules
+
+├── 🧪 Canonical Prompt Source
 │   └── prompts/vibe-coding-instructions.md
 │
-├── 📁 Examples (NEW!)
-│   └── examples/modular-structure/  # Per-folder rule organization
+├── 📁 Examples
+│   ├── examples/modular-structure/  # Per-folder rule organization
+│   └── examples/rule-tests/         # Rule verification tests (NEW!)
+│       ├── security/                # Security rule tests
+│       └── quality/                 # Quality rule tests
 │
 ├── 🧹 Guardrails
 │   └── ANTI_SLOP_GUARDRAILS.md
