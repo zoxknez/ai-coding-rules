@@ -6,6 +6,102 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.5.0] - 2025-01-28
+
+### Added — Professional Vibe Coding Practices
+
+**Problem Addressed:** Need for granular MDC rules, context hygiene, refactoring methodology, enhanced security, MCP integration, and spec-driven development workflow.
+
+**Inspired By:**
+- [Cursor v0.45+ MDC format](https://cursor.directory/) — Reactive rules with glob patterns
+- [Martin Fowler's Refactoring](https://refactoring.com/) — Systematic refactoring techniques
+- [OWASP Developer Guide](https://owasp.org/www-project-developer-guide/) — Security best practices
+- [Model Context Protocol](https://modelcontextprotocol.io/) — AI-to-data connections
+- [Devin.cursorrules](https://github.com/grapeot/devin.cursorrules) — Agentic AI patterns
+- [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) — 37k+ stars community patterns
+
+**Granular MDC Rules (NEW):**
+Added context-specific reactive rules in `.cursor/rules/`:
+- **`90-ui-components.mdc`** — React/Vue/Svelte component patterns with accessibility
+- **`91-api-routes.mdc`** — API validation, auth, rate limiting patterns
+- **`92-database.mdc`** — Prisma/Drizzle/SQL patterns with tenant isolation
+- **`93-state-management.mdc`** — Zustand/Redux patterns with selector pattern
+
+Each rule auto-activates via glob patterns (e.g., `**/components/**/*.tsx`).
+
+**Context Hygiene (NEW):**
+- **`templates/task_on_hand.md`** — Short-term memory to combat "context rot"
+  - Updated after every successful step
+  - Read before starting new tasks
+  - Tracks assumptions, blockers, and checkpoints
+  - Context refresh prompt for new conversations
+
+**R.E.F.A.C.T. Methodology (NEW):**
+- **`docs/quality/REFACT_METHODOLOGY.md`** — Anti-slop framework
+  - **R**ecognise — Identify code smells (>300 lines, deep nesting)
+  - **E**xtract — Extract functions/modules
+  - **F**ormat — Consistent naming and style
+  - **A**ddress Edge Cases — Handle all failure modes
+  - **C**onfirm — Tests pass, no regressions
+  - **T**une — Optimize only when measured
+
+**Security Guardrails (NEW):**
+- **`docs/operations/SECURITY_GUARDRAILS.md`** — Explicit security bans
+  - `.env` file protection — Never modify or display
+  - Mock data restrictions — Test only, never production
+  - Trust boundaries — Validate all external input
+  - OWASP Top 10 patterns with code examples
+  - Authentication and API security requirements
+
+**MCP Server Recommendations (NEW):**
+- **`docs/core/MCP_SERVERS.md`** — Model Context Protocol integration
+  - Database servers (PostgreSQL, Supabase, SQLite)
+  - Search servers (Brave Search, Mantic, Memory)
+  - Development tools (GitHub, Filesystem, Puppeteer)
+  - Configuration examples for Cursor and Claude Desktop
+  - Security considerations for production data
+
+**Spec-Driven Development (NEW):**
+- **`docs/workflows/SPEC_DRIVEN_DEVELOPMENT.md`** — OpenSpec workflow
+  - Three phases: Proposal → Apply → Archive
+  - No code without approved proposal (>10 LOC)
+  - Prevents scope creep and wrong implementations
+  - Full audit trail and documentation
+- **`templates/proposal.md`** — Feature proposal template
+  - Goal, success criteria, scope
+  - Technical approach, alternatives
+  - Risks, testing plan, rollback
+
+**Quick Checklist (NEW):**
+- **`docs/quality/QUICK_CHECKLIST.md`** — One-page verification
+  - Code quality thresholds (300 lines file, 50 lines function)
+  - TDD flow reminder
+  - Placeholder syntax for portability
+  - Context rot detection and recovery
+  - Session stats to track
+
+**Updated Structure:**
+```
+.cursor/rules/
+├── 90-ui-components.mdc      # NEW
+├── 91-api-routes.mdc         # NEW
+├── 92-database.mdc           # NEW
+└── 93-state-management.mdc   # NEW
+
+templates/
+├── task_on_hand.md           # NEW
+└── proposal.md               # NEW
+
+docs/
+├── core/MCP_SERVERS.md       # NEW
+├── quality/REFACT_METHODOLOGY.md    # NEW
+├── quality/QUICK_CHECKLIST.md       # NEW
+├── operations/SECURITY_GUARDRAILS.md # NEW
+└── workflows/SPEC_DRIVEN_DEVELOPMENT.md # NEW
+```
+
+---
+
 ## [4.4.0] - 2025-01-28
 
 ### Changed — Repository Reorganization
