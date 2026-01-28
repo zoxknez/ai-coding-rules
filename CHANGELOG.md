@@ -6,7 +6,123 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [4.5.0] - 2025-01-28
+## [4.6.0] - 2026-01-28
+
+### Added — Agentic Development Governance Framework
+
+**Problem Addressed:** Comprehensive architectural governance for the era of agentic development ("vibe coding"), where AI agents handle implementation while humans govern intent and architecture.
+
+**Analysis Source:** "Architectural Governance and Security Posture in the Era of Agentic Development" - comprehensive analysis of optimal repository structures, security guardrails, and language-specific vulnerability mitigations.
+
+#### Project Constitution (NEW)
+- **`docs/core/CONSTITUTION.md`** — Supreme governance document for all AI agents
+  - Article I: Security First (hierarchy, prohibitions, trust boundaries)
+  - Article II: Explicit Intent (ADRs required, no magic, docs as code)
+  - Article III: Minimal Footprint (YAGNI, dependency discipline, size limits)
+  - Article IV: Verification Loops (test-first, pre-commit, build gates)
+  - Article V: Language-Specific Mandates (Python, TS, Go, Rust, C#)
+  - Article VI: Data Governance (database ops, API design)
+  - Article VII: Incident Response (stop triggers, escalation)
+  - Article VIII: Enforcement (hierarchy, amendment process)
+
+#### Architecture Decision Records (NEW)
+- **`docs/architecture/decisions/`** — ADR system for architectural context
+  - `README.md` — ADR index and workflow
+  - `template.md` — Standard ADR format with agent instructions section
+  - `0001-record-architecture-decisions.md` — Initial ADR establishing the system
+
+#### Google Antigravity Platform Support (NEW)
+- **`.antigravity/rules.md`** — Project constitution for Antigravity agents
+  - Architecture overview with dependency rules
+  - Security mandates and prohibited patterns
+  - Agent workflow guidelines
+  - Review policy (auto-proceed, request review, require approval)
+  - Terminal policies
+- **`.antigravity/allowlist.json`** — Terminal command security policy
+  - Allowed commands by category (build, test, lint, git)
+  - Denied dangerous commands (rm -rf, sudo, env exposure)
+  - Escalation requirements
+- **`.antigravity/workflows/`** — Standard Operating Procedures
+  - `deployment-prep.md` — Pre-deployment verification workflow
+  - `code-review.md` — Agent-assisted code review procedure
+
+#### New Stack Guidelines
+- **`docs/stacks/stack_go.md`** — Go patterns and vulnerabilities
+  - Standard project layout with internal/ boundary
+  - Error handling requirements
+  - Nil safety patterns
+  - Concurrency discipline (context, WaitGroups)
+  - HTTP handler patterns
+- **`docs/stacks/stack_csharp.md`** — C#/.NET 8+ patterns
+  - Clean Architecture + DDD structure
+  - Captive dependency prevention (DI lifetimes)
+  - Mass assignment (overposting) prevention
+  - XXE prevention in XML parsing
+  - Async/await patterns
+- **`docs/stacks/stack_mobile.md`** — iOS and Android security
+  - iOS: Keychain vs UserDefaults (CRITICAL)
+  - iOS: Certificate pinning, SwiftLint configuration
+  - Android: Intent hijacking prevention
+  - Android: WebView JavaScript interface RCE prevention
+  - Android: EncryptedSharedPreferences, network security config
+
+#### Security Documentation
+- **`docs/security/AGENT_VULNERABILITIES.md`** — Catalog of agent-induced vulnerabilities
+  - Root cause analysis (why agents generate these)
+  - Python: pickle (RCE), SQL injection, path traversal
+  - JavaScript: XSS, SSR injection, prototype pollution
+  - Go: Nil panics (DoS), goroutine leaks
+  - Rust: unsafe block escape
+  - C#: Captive dependencies
+  - Mobile: UserDefaults secrets, WebView RCE
+  - Detection rules (semgrep, pre-commit)
+- **`docs/security/CLOUD_IAC_SECURITY.md`** — Infrastructure as Code security
+  - CDE metadata service risks
+  - Terraform: wildcard IAM, hardcoded secrets, public S3, encryption
+  - Docker: root user, latest tag, secrets in build, exposed ports
+  - Kubernetes: privileged containers, secrets in ConfigMaps
+  - IaC scanning tools (tfsec, checkov, hadolint, trivy)
+
+#### Governance Automation
+- **`docs/operations/GOVERNANCE_AUTOMATION.md`** — Automated verification framework
+  - Verification hierarchy (agent → pre-commit → CI → human)
+  - Complete pre-commit configuration (20+ hooks)
+  - Custom semgrep rules for agent patterns
+  - GitHub Actions security workflows
+  - Language-specific verification commands
+  - Tool configuration files (ESLint, Ruff, etc.)
+- **`examples/config/README.md`** — Ready-to-use configuration templates
+  - EditorConfig, gitignore additions, VS Code settings
+  - Implementation checklist
+
+### Changed
+- Updated repository structure with new directories:
+  - `docs/architecture/decisions/` — ADR storage
+  - `docs/security/` — Security documentation
+  - `.antigravity/` — Antigravity platform config
+  - `examples/config/` — Configuration templates
+
+### File Summary
+New files created: 18
+- `.antigravity/rules.md`
+- `.antigravity/allowlist.json`
+- `.antigravity/workflows/deployment-prep.md`
+- `.antigravity/workflows/code-review.md`
+- `docs/core/CONSTITUTION.md`
+- `docs/architecture/decisions/README.md`
+- `docs/architecture/decisions/template.md`
+- `docs/architecture/decisions/0001-record-architecture-decisions.md`
+- `docs/stacks/stack_go.md`
+- `docs/stacks/stack_csharp.md`
+- `docs/stacks/stack_mobile.md`
+- `docs/security/AGENT_VULNERABILITIES.md`
+- `docs/security/CLOUD_IAC_SECURITY.md`
+- `docs/operations/GOVERNANCE_AUTOMATION.md`
+- `examples/config/README.md`
+
+---
+
+## [4.5.0] - 2026-01-28
 
 ### Added — Professional Vibe Coding Practices
 

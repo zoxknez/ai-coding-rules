@@ -78,6 +78,11 @@ ai-coding-rules/
 │   │   ├── stack_python.md         # Python
 │   │   └── stack_rust.md           # Rust
 │   │
+│   ├── architecture/               # 🏛️ Decision records (NEW v4.6)
+│   │   └── decisions/              # ADRs
+│   │       ├── template.md
+│   │       └── 0001-*.md
+│   │
 │   ├── workflows/                  # 🟡 Agent patterns
 │   │   ├── task_template.md        # Task specification
 │   │   ├── agent_loop.md           # Iteration workflow
@@ -85,7 +90,12 @@ ai-coding-rules/
 │   │
 │   ├── operations/                 # ⚪ Security & ops
 │   │   ├── security_privacy.md     # Security rules
+│   │   ├── GOVERNANCE_AUTOMATION.md # Pre-commit, CI (NEW v4.6)
 │   │   └── incident_response.md    # When AI breaks things
+│   │
+│   ├── security/                   # 🔴 Security guides (NEW v4.6)
+│   │   ├── AGENT_VULNERABILITIES.md # Language-specific vulns
+│   │   └── CLOUD_IAC_SECURITY.md   # Terraform, Docker, K8s
 │   │
 │   ├── quality/                    # 🟢 Reviews & metrics
 │   │   ├── quality_control.md      # Review gates
@@ -95,12 +105,21 @@ ai-coding-rules/
 │       ├── TOKEN_OPTIMIZATION.md   # Cost reduction
 │       └── RULE_INDEX.md           # Lightweight index
 │
-├── 🤖 .cursor/rules/               # Cursor MDC rules (19 files)
+├── 🤖 .cursor/rules/               # Cursor MDC rules (23 files)
 │   ├── 00-global.mdc               # Always active
 │   ├── 20-security-privacy.mdc     # Security files
 │   ├── 60-stack-frontend.mdc       # React/Next.js
 │   ├── 80-vibe-coding.mdc          # Rapid prototyping
+│   ├── 90-ui-components.mdc        # Component patterns (NEW v4.5)
+│   ├── 91-api-routes.mdc           # API patterns (NEW v4.5)
 │   └── ...
+│
+├── 🚀 .antigravity/                # Google Antigravity (NEW v4.6)
+│   ├── rules.md                    # Project constitution
+│   ├── allowlist.json              # Terminal security
+│   └── workflows/                  # SOPs
+│       ├── deployment-prep.md
+│       └── code-review.md
 │
 ├── 🧠 .claude/                     # Claude Code config
 │   ├── rules/                      # Path-specific rules
@@ -124,10 +143,15 @@ ai-coding-rules/
 │   └── rules/                      # Modular rules
 │
 ├── 📝 examples/                    # Examples & tests
+│   ├── config/                     # Governance configs (NEW v4.6)
 │   ├── modular-structure/          # Per-folder rules
 │   └── rule-tests/                 # Rule verification
 │       ├── security/               # Security test cases
 │       └── quality/                # Quality test cases
+│
+├── 📋 templates/                   # Reusable templates
+│   ├── task_on_hand.md             # Context hygiene (NEW v4.5)
+│   └── proposal.md                 # Feature proposals (NEW v4.5)
 │
 ├── 🧪 prompts/                     # Canonical prompts
 │   └── vibe-coding-instructions.md
@@ -143,6 +167,10 @@ ai-coding-rules/
 
 ### Golden Rule
 > **Correctness > Simplicity > Consistency > Style**
+
+### Project Constitution (NEW v4.6)
+> **The supreme law for AI agents — defines non-negotiable boundaries.**
+> See [docs/core/CONSTITUTION.md](docs/core/CONSTITUTION.md)
 
 ### Three-Phase Pattern
 1. **PLAN** — Understand, break down, confirm

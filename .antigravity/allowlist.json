@@ -1,0 +1,216 @@
+{
+  "$schema": "https://antigravity.dev/schemas/allowlist.json",
+  "version": "1.0.0",
+  "description": "Terminal command security policy for Antigravity agents",
+  
+  "policy": "allowlist",
+  "mode": "strict",
+  
+  "allow": {
+    "build": [
+      "npm run build",
+      "npm run dev",
+      "npm run start",
+      "npm run preview",
+      "pnpm build",
+      "pnpm dev",
+      "yarn build",
+      "yarn dev",
+      "cargo build",
+      "cargo build --release",
+      "go build",
+      "dotnet build",
+      "python -m build"
+    ],
+    
+    "test": [
+      "npm run test",
+      "npm test",
+      "npm run test:unit",
+      "npm run test:integration",
+      "npm run test:e2e",
+      "pnpm test",
+      "yarn test",
+      "cargo test",
+      "go test ./...",
+      "dotnet test",
+      "python -m pytest",
+      "pytest"
+    ],
+    
+    "lint": [
+      "npm run lint",
+      "npm run lint:fix",
+      "pnpm lint",
+      "yarn lint",
+      "cargo clippy",
+      "cargo clippy --fix",
+      "cargo fmt",
+      "cargo fmt --check",
+      "go fmt ./...",
+      "golangci-lint run",
+      "dotnet format",
+      "ruff check",
+      "ruff check --fix",
+      "ruff format",
+      "black .",
+      "black --check .",
+      "mypy .",
+      "eslint .",
+      "prettier --check .",
+      "prettier --write ."
+    ],
+    
+    "typecheck": [
+      "npm run typecheck",
+      "npm run type-check",
+      "tsc --noEmit",
+      "pnpm typecheck",
+      "yarn typecheck",
+      "mypy .",
+      "pyright"
+    ],
+    
+    "security": [
+      "npm audit",
+      "pnpm audit",
+      "yarn audit",
+      "cargo audit",
+      "pip-audit",
+      "bandit -r .",
+      "semgrep --config auto",
+      "detect-secrets scan"
+    ],
+    
+    "git_read": [
+      "git status",
+      "git diff",
+      "git diff --staged",
+      "git log --oneline -20",
+      "git log --oneline",
+      "git branch",
+      "git branch -a",
+      "git show",
+      "git blame"
+    ],
+    
+    "git_write": [
+      "git add",
+      "git add -A",
+      "git add .",
+      "git commit",
+      "git commit -m",
+      "git stash",
+      "git stash pop"
+    ],
+    
+    "package_info": [
+      "npm list",
+      "npm outdated",
+      "pnpm list",
+      "yarn list",
+      "cargo tree",
+      "pip list",
+      "pip show"
+    ],
+    
+    "file_operations": [
+      "cat",
+      "head",
+      "tail",
+      "wc -l",
+      "find . -name",
+      "grep -r",
+      "ls -la",
+      "tree"
+    ]
+  },
+  
+  "deny": {
+    "dangerous": [
+      "rm -rf /",
+      "rm -rf ~",
+      "rm -rf *",
+      "sudo",
+      "chmod 777",
+      "chmod -R 777",
+      "> /dev/sda",
+      "mkfs",
+      "dd if=",
+      ":(){:|:&};:"
+    ],
+    
+    "secrets_exposure": [
+      "printenv",
+      "env",
+      "echo $",
+      "cat .env",
+      "cat ~/.ssh",
+      "cat /etc/passwd",
+      "cat /etc/shadow"
+    ],
+    
+    "network_exfiltration": [
+      "curl http",
+      "curl https",
+      "wget http",
+      "wget https",
+      "nc -",
+      "netcat",
+      "ncat"
+    ],
+    
+    "publish": [
+      "npm publish",
+      "pnpm publish",
+      "yarn publish",
+      "cargo publish",
+      "twine upload",
+      "pip upload"
+    ],
+    
+    "system_modification": [
+      "apt install",
+      "apt-get install",
+      "brew install",
+      "npm install -g",
+      "pip install --user",
+      "chown",
+      "useradd",
+      "usermod"
+    ]
+  },
+  
+  "exceptions": {
+    "allowed_urls": [
+      "https://registry.npmjs.org",
+      "https://crates.io",
+      "https://pypi.org"
+    ],
+    
+    "notes": [
+      "curl/wget to allowed_urls are permitted for package metadata",
+      "git push requires explicit human confirmation",
+      "Database migrations require human approval"
+    ]
+  },
+  
+  "escalation": {
+    "require_confirmation": [
+      "git push",
+      "git push --force",
+      "npm install",
+      "pnpm install",
+      "yarn install",
+      "cargo add",
+      "pip install",
+      "database migration commands"
+    ],
+    
+    "require_approval": [
+      "Any command not in allow list",
+      "Commands with pipes to external services",
+      "Commands modifying system configuration"
+    ]
+  }
+}
