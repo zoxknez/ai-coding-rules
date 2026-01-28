@@ -142,6 +142,22 @@ ai-coding-rules/
 │   ├── memory.md                   # Main memory
 │   └── rules/                      # Modular rules
 │
+├── 🧩 languages/                   # Language blueprints (NEW v4.7)
+│   ├── python/                     # Python folder blueprint
+│   ├── typescript/                 # TypeScript folder blueprint
+│   ├── javascript/                 # JavaScript folder blueprint
+│   ├── go/                         # Go folder blueprint
+│   ├── rust/                       # Rust folder blueprint
+│   ├── dotnet/                     # .NET folder blueprint
+│   ├── java/                       # Java folder blueprint
+│   ├── kotlin/                     # Kotlin folder blueprint
+│   ├── swift/                      # Swift folder blueprint
+│   ├── php/                        # PHP folder blueprint
+│   ├── ruby/                       # Ruby folder blueprint
+│   ├── dart/                       # Dart folder blueprint
+│   ├── c/                          # C folder blueprint
+│   └── cpp/                        # C++ folder blueprint
+│
 ├── 📝 examples/                    # Examples & tests
 │   ├── config/                     # Governance configs (NEW v4.6)
 │   ├── modular-structure/          # Per-folder rules

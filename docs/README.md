@@ -23,6 +23,7 @@ docs/
 | **Start here** | [core/MASTER_RULES.md](core/MASTER_RULES.md) |
 | **Project Constitution** | [core/CONSTITUTION.md](core/CONSTITUTION.md) |
 | **MCP Servers** | [core/MCP_SERVERS.md](core/MCP_SERVERS.md) |
+| **Language folders** | [../languages/README.md](../languages/README.md) |
 | **ADRs** | [architecture/decisions/](architecture/decisions/) |
 | **Agent Vulnerabilities** | [security/AGENT_VULNERABILITIES.md](security/AGENT_VULNERABILITIES.md) |
 | **Cloud/IaC Security** | [security/CLOUD_IAC_SECURITY.md](security/CLOUD_IAC_SECURITY.md) |
@@ -59,6 +60,23 @@ docs/
 - [stack_go.md](stacks/stack_go.md) — **NEW v4.6** Go patterns & nil safety
 - [stack_csharp.md](stacks/stack_csharp.md) — **NEW v4.6** C#/.NET 8+ patterns
 - [stack_mobile.md](stacks/stack_mobile.md) — **NEW v4.6** iOS & Android security
+
+### 🧩 Languages (Folder Blueprints)
+- [languages/README.md](../languages/README.md) — **NEW v4.7** Index of language folders
+- [languages/python](../languages/python) — Python structure and security
+- [languages/typescript](../languages/typescript) — TypeScript structure and security
+- [languages/javascript](../languages/javascript) — JavaScript structure and security
+- [languages/go](../languages/go) — Go structure and security
+- [languages/rust](../languages/rust) — Rust structure and security
+- [languages/dotnet](../languages/dotnet) — .NET structure and security
+- [languages/java](../languages/java) — Java structure and security
+- [languages/kotlin](../languages/kotlin) — Kotlin structure and security
+- [languages/swift](../languages/swift) — Swift structure and security
+- [languages/php](../languages/php) — PHP structure and security
+- [languages/ruby](../languages/ruby) — Ruby structure and security
+- [languages/dart](../languages/dart) — Dart structure and security
+- [languages/c](../languages/c) — C structure and security
+- [languages/cpp](../languages/cpp) — C++ structure and security
 
 ### 🟡 Workflows
 - [task_template.md](workflows/task_template.md) — Task specification

@@ -6,6 +6,41 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.7.0] - 2026-01-28
+
+### Added — Language Folder Blueprints
+
+**Problem Addressed:** Every language needs a canonical folder blueprint to reduce context ambiguity for agentic development.
+
+**Sources Consulted:**
+- [Standard Go Project Layout](https://github.com/golang-standards/project-layout)
+- [Next.js App Router Structure](https://nextjs.org/docs/app/getting-started/project-structure)
+- [Rust Cargo Workspaces](https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html)
+- [Apple Keychain Services](https://developer.apple.com/documentation/security/keychain-services)
+
+#### New Language Folders (NEW)
+
+- **`languages/README.md`** — Index and contract for language blueprints
+- **`languages/python/`** — Interface-first layout with schemas and services
+- **`languages/typescript/`** — Feature-sliced layout for Next.js and React
+- **`languages/javascript/`** — Modular API structure with schemas and services
+- **`languages/go/`** — Standard Go layout with internal boundary
+- **`languages/rust/`** — Cargo workspace layout with crate boundaries
+- **`languages/dotnet/`** — Clean Architecture layout for .NET 8+
+- **`languages/java/`** — Layered packages for JVM services
+- **`languages/kotlin/`** — Android Clean Architecture with feature modules
+- **`languages/swift/`** — iOS feature modularization with ViewModels
+- **`languages/php/`** — Laravel-style layering with DTO boundaries
+- **`languages/ruby/`** — Rails-style services and policy boundaries
+- **`languages/dart/`** — Flutter feature modules with clean boundaries
+- **`languages/c/`** — C layout with include and src boundaries
+- **`languages/cpp/`** — C++ layout with modern RAII boundaries
+
+#### Documentation Updates
+
+- Updated [docs/README.md](docs/README.md) with language links and index.
+- Updated [README.md](README.md) repository structure to include languages/.
+
 ## [4.6.0] - 2026-01-28
 
 ### Added — Agentic Development Governance Framework
