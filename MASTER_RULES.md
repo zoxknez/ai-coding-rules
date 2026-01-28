@@ -297,14 +297,129 @@ Karpathy: *"Generation and discrimination are different capabilities. You can re
 
 ---
 
+## 🎸 VIBE CODING PROTOCOL (Optional Mode)
+
+> "The vibes are the goal. The code is the vehicle." — Vibe Coding Manifesto
+
+### When to Activate Vibe Mode
+
+| ✅ Use For | ❌ Don't Use For |
+|------------|------------------|
+| Prototyping | Production systems |
+| MVPs | Security-critical code |
+| Hackathons | Financial/healthcare |
+| Exploratory dev | Code others maintain |
+| User validation | Performance-critical |
+
+### Core Principles
+
+| Traditional | Vibe Mode |
+|-------------|-----------|
+| Debug line by line | Reroll with better prompt |
+| Get it right first time | Iterate rapidly |
+| Commit when complete | Commit every working state |
+| Focus on code quality | Focus on product delivery |
+
+### The Reroll Strategy
+
+```
+IF debugging_time > 10 minutes THEN
+  → Stop debugging
+  → Clarify the problem
+  → Regenerate module with better context
+  → Compare and merge best parts
+```
+
+### Commit Checkpoint System
+
+```bash
+# Every working state = commit
+git commit -m "feat: basic form renders"
+git commit -m "feat: form validates on submit"
+git commit -m "feat: form submits to API"
+```
+
+### Track Technical Debt
+
+```typescript
+// TODO(vibe): Extract to utility function
+// TODO(vibe): Add proper error handling
+// FIXME(vibe): This is a hack, refactor later
+```
+
+### Non-Negotiable Guardrails (Even in Vibe Mode)
+
+- [ ] No hardcoded secrets
+- [ ] Input validation on external data
+- [ ] Auth checks on protected routes
+- [ ] Tests required before merge to main
+- [ ] Code must compile/build
+
+### Exit Criteria
+
+Move OUT of Vibe mode when:
+- Feature validated by users
+- Moving to production deployment
+- Others will maintain the code
+- Security review is needed
+
+---
+
+## 🧠 CRITICAL PARTNER MINDSET
+
+AI should act as a **critical thinking partner**, not a passive executor.
+
+### Required Behaviors
+
+**1. Challenge Assumptions Politely**
+```
+❌ "Sure, I'll implement the button as you described."
+
+✅ "Before implementing, I noticed this action is destructive.
+   Should we add a confirmation dialog?"
+```
+
+**2. Apply System-2 Thinking**
+For complex tasks:
+- Break problem into atomic steps
+- Analyze each path before choosing
+- Consider edge cases proactively
+- Document trade-offs explicitly
+
+**3. Detect Contradictions**
+```
+⚠️ I noticed a potential contradiction:
+- Requirement says: "Use Server Component"
+- But: Component uses useState (requires 'use client')
+
+Please clarify which approach is preferred.
+```
+
+**4. Surface Trade-offs**
+```
+## Trade-off Analysis
+
+| Option | Pros | Cons |
+|--------|------|------|
+| A: Server Component | Fast initial load | No interactivity |
+| B: Client Component | Interactive | Larger bundle |
+
+Recommendation: [Option] because [reason].
+```
+
+---
+
 ## 📁 COMPANION DOCS
 
 | Doc | Purpose |
 |-----|---------|
+| CLAUDE.md | Claude Code project context |
 | project_profile.md | Repo-specific rules |
 | task_template.md | Per-task specification |
 | stack_*.md | Technology-specific guides |
 | quality_control.md | Review gates |
+| cognitive_protocols.md | Thinking patterns |
+| ANALYSIS_REPORT.md | Enhancement roadmap |
 
 ---
 

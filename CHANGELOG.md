@@ -6,6 +6,59 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.0.0] - 2026-01-27
+
+### Added — Vibe Coding & AI-Native Enhancement
+
+**New Files:**
+- **CLAUDE.md** — Claude Code project memory file (auto-loaded at session start)
+- **ANALYSIS_REPORT.md** — Comprehensive enhancement blueprint v2.0
+- **.cursor/rules/65-stack-supabase.mdc** — Supabase RLS patterns, Auth, Edge Functions
+- **.cursor/rules/66-stack-shadcn.mdc** — Shadcn UI, cn() helper, Lucide icons, Sonner
+- **.cursor/rules/67-stack-nextjs15.mdc** — Next.js 15 App Router comprehensive guide
+- **.cursor/rules/80-vibe-coding.mdc** — Vibe Coding Protocol for rapid prototyping
+
+**Extended Files:**
+- **MASTER_RULES.md** — Added Vibe Coding Protocol + Critical Partner Mindset sections
+- **cognitive_protocols.md** — Added enhanced Critical Partner section with System-2 thinking
+- **.cursor/rules/60-stack-frontend.mdc** — Next.js 15 App Router (RSC, Server Actions)
+- **.cursor/rules/63-stack-db.mdc** — Supabase RLS function caching (17x speedup)
+
+### Core Enhancements
+
+**Supabase RLS Patterns:**
+- Function caching: `(SELECT auth.uid())` vs `auth.uid()` — O(N+f(C)) vs O(N×f(C))
+- Join optimization for multi-table policies
+- Null guard patterns for unauthenticated access
+- Indexing requirements for RLS predicates
+
+**Next.js 15 App Router:**
+- Server Component default strategy
+- Parallel fetching with `Promise.all()`
+- Server Actions for mutations
+- Metadata generation patterns
+- Migration guide from Pages Router
+
+**Vibe Coding Protocol:**
+- Speed > perfection philosophy for prototyping
+- Reroll strategy (3 attempts before manual fix)
+- Commit checkpoints every 15-30 min
+- Context preservation patterns
+- Guardrails and exit criteria
+
+**Critical Partner Mindset:**
+- Anti-sycophancy checklist
+- System-2 Analysis template
+- Contradiction detection format
+- Trade-off analysis tables
+
+### Changed
+- Updated COMPANION DOCS table in MASTER_RULES.md
+- Enhanced Active Learning Protocol in cognitive_protocols.md
+- All new content in English per language policy
+
+---
+
 ## [3.0.0] - 2026-01-27
 
 ### Added

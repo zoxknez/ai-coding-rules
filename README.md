@@ -30,10 +30,22 @@ Copy [`MASTER_RULES.md`](./MASTER_RULES.md) into your AI assistant's project rul
 |----------|------|-----------------|
 | **GitHub Copilot** | [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) | `.github/copilot-instructions.md` |
 | **Cursor** | [`cursor-rules.md`](./cursor-rules.md) | `.cursor/rules` or `.cursorrules` |
-| **Claude** | [`claude-instructions.md`](./claude-instructions.md) | Project custom instructions |
+| **Claude Code** | [`CLAUDE.md`](./CLAUDE.md) | Repository root (auto-loaded) |
+| **Claude Projects** | [`claude-instructions.md`](./claude-instructions.md) | Project custom instructions |
 
 ### Option 3: Modular Cursor (Premium)
-Use the `.cursor/rules/*.mdc` set for conditional, context-aware rule activation.
+Use the `.cursor/rules/*.mdc` set for conditional, context-aware rule activation:
+
+| Module | File | Activates When |
+|--------|------|----------------|
+| Global | `00-global.mdc` | Always |
+| Security | `20-security-privacy.mdc` | Auth, secrets, crypto files |
+| Frontend | `60-stack-frontend.mdc` | React/Next.js files |
+| Database | `63-stack-db.mdc` | Prisma, Drizzle, SQL files |
+| **Supabase** | `65-stack-supabase.mdc` | Supabase client/functions |
+| **Shadcn** | `66-stack-shadcn.mdc` | UI components |
+| **Next.js 15** | `67-stack-nextjs15.mdc` | App Router files |
+| **Vibe Coding** | `80-vibe-coding.mdc` | Rapid prototyping mode |
 
 ### Option 4: Full Setup
 1. Add `global_rules.md` + `ai_model_contract.md` to project rules
@@ -112,7 +124,10 @@ ai-coding-rules/
 ├── 🧩 Cursor Modular Rules
 │   └── .cursor/rules/*.mdc        # Conditional rule activation
 
-├── 🧪 Canonical Prompt Source
+├── � Claude Code
+│   └── CLAUDE.md                  # Claude Code project memory (auto-loaded)
+
+├── �🧪 Canonical Prompt Source
 │   └── prompts/vibe-coding-instructions.md
 
 ├── 🧹 Guardrails
@@ -160,6 +175,37 @@ ai-coding-rules/
 | **Three-phase pattern** | Naive → Correct → Optimize |
 | **Test-first loop** | Leverages AI stamina |
 | **Pushback protocol** | Prevents bad decisions |
+| **Vibe Coding** | Speed > perfection for prototyping |
+
+---
+
+## 🎸 Vibe Coding Protocol
+
+For rapid prototyping and exploration (v4.0):
+
+### When to Activate
+- POC or prototype phase
+- Solo developer or demo
+- Deadline < 48 hours
+
+### Core Principles
+1. **Speed > Perfection** — ship fast, iterate later
+2. **Reroll Strategy** — 3 AI attempts before manual fix
+3. **Commit Checkpoints** — save every 15-30 minutes
+4. **Context Preservation** — keep working state clean
+
+### Guardrails (Never Skip)
+- [ ] Auth/secrets handled properly
+- [ ] No infinite loops or recursion
+- [ ] Data is recoverable (soft delete)
+- [ ] Graceful error handling
+
+### Exit Criteria
+When prototype → production:
+- Add comprehensive tests
+- Tighten TypeScript strict mode
+- Security audit pass
+- Documentation complete
 
 ---
 
