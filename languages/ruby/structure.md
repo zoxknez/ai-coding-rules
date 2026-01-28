@@ -16,3 +16,7 @@ project/
 ├─ bin/
 └─ spec/
 ```
+
+## Sources
+
+- RubyGems guide: Make your own gem (lib and gemspec layout). https://guides.rubygems.org/make-your-own-gem/

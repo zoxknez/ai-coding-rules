@@ -19,3 +19,8 @@
 ## References
 
 - [Agent vulnerabilities](../../docs/security/AGENT_VULNERABILITIES.md)
+
+## Sources
+
+- SEI CERT C++ coding standard. https://wiki.sei.cmu.edu/confluence/display/cplusplus/SEI+CERT+C%2B%2B+Coding+Standard
+- OWASP Buffer Overflow. https://owasp.org/www-community/attacks/Buffer_overflow

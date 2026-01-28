@@ -15,3 +15,12 @@ project/
 ├─ examples/
 └─ scripts/
 ```
+
+## Notes
+
+- include and src are common conventions, but C++ projects can use other layouts.
+- Keep build outputs out of the source tree.
+
+## Sources
+
+- CMake tutorial (project configuration and build workflow). https://cmake.org/cmake/help/latest/guide/tutorial/index.html

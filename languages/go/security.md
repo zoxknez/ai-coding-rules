@@ -20,3 +20,9 @@
 
 - [Agent vulnerabilities](../../docs/security/AGENT_VULNERABILITIES.md)
 - [Go layout](https://github.com/golang-standards/project-layout)
+
+## Sources
+
+- Go security policy and advisories. https://go.dev/security/
+- Go internal packages guidance. https://pkg.go.dev/cmd/go#hdr-Internal_Directories
+- OWASP SQL Injection. https://owasp.org/www-community/attacks/SQL_Injection

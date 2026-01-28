@@ -20,3 +20,8 @@
 
 - [Android security](https://developer.android.com/training/security)
 - [Agent vulnerabilities](../../docs/security/AGENT_VULNERABILITIES.md)
+
+## Sources
+
+- Android security best practices. https://developer.android.com/topic/security/best-practices
+- WebView addJavascriptInterface risk notes. https://developer.android.com/reference/android/webkit/WebView#addJavascriptInterface(java.lang.Object,%20java.lang.String)

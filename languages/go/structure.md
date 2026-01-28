@@ -1,16 +1,5 @@
 # Go Structure
 
-> Standard Go project layout with internal fortress.
-
-## Canonical Layout
-
-```text
-project-root/
-├── cmd/
-│   └── api-server/
-│       └── main.go
-# Go Structure
-
 > cmd + internal layout with explicit layers.
 
 ## Canonical Layout
@@ -33,4 +22,8 @@ project/
 ├─ pkg/
 └─ tests/
 ```
+
+## Sources
+
+- Go modules layout guidance (cmd and internal patterns). https://go.dev/doc/modules/layout
 

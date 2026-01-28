@@ -19,3 +19,10 @@
 ## References
 
 - [Agent vulnerabilities](../../docs/security/AGENT_VULNERABILITIES.md)
+
+## Sources
+
+- Rails security guide. https://guides.rubyonrails.org/security.html
+- Rails strong parameters. https://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
+- OWASP SQL Injection. https://owasp.org/www-community/attacks/SQL_Injection
+- Ruby Psych safe_load documentation. https://ruby-doc.org/stdlib-3.3.0/libdoc/psych/rdoc/Psych.html

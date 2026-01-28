@@ -22,6 +22,14 @@ project-root/
 └── pubspec.yaml
 ```
 
+## Notes
+
+- The core and features layering is a clean-architecture convention on top of Dart package layout.
+
+## Sources
+
+- Dart package layout conventions (pubspec.yaml, lib, test). https://dart.dev/tools/pub/package-layout
+
 ## Agent Workflow
 
 1. Define models and interfaces in features/*/domain.

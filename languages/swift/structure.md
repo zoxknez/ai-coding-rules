@@ -14,7 +14,17 @@ project/
 │     ├─ Domain/
 │     ├─ Application/
 │     ├─ Infrastructure/
-│     └─ Shared/
+│     ├─ Shared/
+│     └─ Resources/
 └─ Tests/
-	└─ AppTests/
+   └─ AppTests/
 ```
+
+## Notes
+
+- SwiftPM targets default to Sources/TargetName and Tests/TargetNameTests.
+- Resources belong inside the target folder (for example, Sources/App/Resources).
+
+## Sources
+
+- Swift Package Manager docs (targets and resource placement). https://docs.swift.org/package-manager/PackageDescription/PackageDescription.html

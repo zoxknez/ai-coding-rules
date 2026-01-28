@@ -158,6 +158,7 @@ ai-coding-rules/
 │   ├── dart/                       # Dart folder blueprint
 │   ├── c/                          # C folder blueprint
 │   └── cpp/                        # C++ folder blueprint
+│   # Each language blueprint includes sources with authoritative references.
 │
 ├── 📝 examples/                    # Examples & tests
 │   ├── config/                     # Governance configs (NEW v4.6)

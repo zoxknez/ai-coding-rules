@@ -19,3 +19,8 @@
 ## References
 
 - [Agent vulnerabilities](../../docs/security/AGENT_VULNERABILITIES.md)
+
+## Sources
+
+- Flutter security guidance. https://docs.flutter.dev/deployment/security
+- OWASP Mobile Top 10. https://owasp.org/www-project-mobile-top-10/

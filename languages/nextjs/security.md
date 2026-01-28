@@ -1,23 +1,6 @@
-# Next.js Security# Next.js Security
+# Next.js Security
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- Use server actions or route handlers for privileged operations.- No unsafe HTML without sanitization.- No manual script tag JSON injection.## Required Controls| Server/client boundary leaks | Mixing components | Keep server logic out of client components || SSR injection in script tags | Naive JSON.stringify | Use framework data passing || XSS via dangerouslySetInnerHTML | Fast HTML rendering | Use SafeHTML with sanitization ||---|---|---|| Risk | Why Agents Do It | Mitigation |## High-Risk Patterns> Top agent-induced risks and mitigations.
-> Top agent-induced risks and mitigations.
+> Common agent-induced vulnerabilities and mitigations.
 
 ## High-Risk Patterns
 
@@ -29,6 +12,17 @@
 
 ## Required Controls
 
-- No manual script tag JSON injection.
-- No unsafe HTML without sanitization.
 - Use server actions or route handlers for privileged operations.
+- No unsafe HTML without sanitization.
+- No manual script tag JSON injection.
+- Keep secrets in server-only code paths.
+
+## References
+
+- [Agent vulnerabilities](../../docs/security/AGENT_VULNERABILITIES.md)
+- [Security guardrails](../../docs/operations/SECURITY_GUARDRAILS.md)
+
+## Sources
+
+- Next.js data security guide. https://nextjs.org/docs/app/guides/data-security
+- OWASP Cross Site Scripting. https://owasp.org/www-community/attacks/xss/

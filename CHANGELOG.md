@@ -6,6 +6,41 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.8.1] - 2026-01-28
+
+### Changed — Source Citations for Language Structures
+
+- Added authoritative sources to language structure blueprints.
+- Clarified where layouts are conventions layered on top of official defaults.
+- Cleaned duplicate header in Go structure.
+
+### Sources Verified
+
+- Each language structure and security blueprint now includes authoritative external sources.
+
+#### Updated Files
+
+- languages/nextjs/structure.md
+- languages/javascript/structure.md
+- languages/typescript/structure.md
+- languages/go/structure.md
+- languages/rust/structure.md
+- languages/java/structure.md
+- languages/kotlin/structure.md
+- languages/php/structure.md
+- languages/ruby/structure.md
+- languages/dart/structure.md
+- languages/c/structure.md
+- languages/cpp/structure.md
+- languages/python/structure.md
+- languages/dotnet/structure.md
+- languages/swift/structure.md
+- languages/*/README.md
+- languages/*/security.md
+- languages/README.md
+- docs/README.md
+- README.md
+
 ## [4.8.0] - 2026-01-28
 
 ### Changed — Language Structure Blueprints 2026

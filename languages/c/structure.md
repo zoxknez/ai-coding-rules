@@ -19,6 +19,15 @@ project-root/
 └── Makefile
 ```
 
+## Notes
+
+- include and src are common conventions, but C projects can use other layouts.
+- build is intended for out-of-source builds.
+
+## Sources
+
+- CMake tutorial (out-of-source builds and CMakeLists.txt usage). https://cmake.org/cmake/help/latest/guide/tutorial/index.html
+
 ## Agent Workflow
 
 1. Define public APIs in include/project.

@@ -28,6 +28,26 @@
 | C | [languages/c](c) | include/src layout |
 | C++ | [languages/cpp](cpp) | CMake layout |
 
+## Sources Index
+
+| Language | Structure Sources | Security Sources |
+|---|---|---|
+| Python | [structure.md](python/structure.md) | [security.md](python/security.md) |
+| JavaScript | [structure.md](javascript/structure.md) | [security.md](javascript/security.md) |
+| TypeScript | [structure.md](typescript/structure.md) | [security.md](typescript/security.md) |
+| Next.js | [structure.md](nextjs/structure.md) | [security.md](nextjs/security.md) |
+| Go | [structure.md](go/structure.md) | [security.md](go/security.md) |
+| Rust | [structure.md](rust/structure.md) | [security.md](rust/security.md) |
+| .NET | [structure.md](dotnet/structure.md) | [security.md](dotnet/security.md) |
+| Java | [structure.md](java/structure.md) | [security.md](java/security.md) |
+| Kotlin | [structure.md](kotlin/structure.md) | [security.md](kotlin/security.md) |
+| Swift | [structure.md](swift/structure.md) | [security.md](swift/security.md) |
+| PHP | [structure.md](php/structure.md) | [security.md](php/security.md) |
+| Ruby | [structure.md](ruby/structure.md) | [security.md](ruby/security.md) |
+| Dart | [structure.md](dart/structure.md) | [security.md](dart/security.md) |
+| C | [structure.md](c/structure.md) | [security.md](c/security.md) |
+| C++ | [structure.md](cpp/structure.md) | [security.md](cpp/security.md) |
+
 ## Folder Contract
 
 Each language folder contains:
@@ -35,6 +55,8 @@ Each language folder contains:
 - README.md: Summary and links.
 - structure.md: Canonical folder layout.
 - security.md: Top agent-induced risks and mitigations.
+
+Each structure.md includes a Sources section with authoritative references.
 
 ## How To Use
 

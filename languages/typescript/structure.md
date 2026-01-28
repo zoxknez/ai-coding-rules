@@ -24,3 +24,11 @@ project/
 ├─ tests/
 └─ scripts/
 ```
+
+## Notes
+
+- Layer folders under src are a team convention and can be reorganized per framework.
+
+## Sources
+
+- npm package.json reference (root metadata and entry points). https://docs.npmjs.com/cli/v10/configuring-npm/package-json

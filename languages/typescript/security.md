@@ -22,3 +22,10 @@
 
 - [Agent vulnerabilities](../../docs/security/AGENT_VULNERABILITIES.md)
 - [Security guardrails](../../docs/operations/SECURITY_GUARDRAILS.md)
+
+## Sources
+
+- Node.js security best practices. https://nodejs.org/en/learn/getting-started/security-best-practices
+- OWASP Cross Site Scripting. https://owasp.org/www-community/attacks/xss/
+- OWASP SQL Injection. https://owasp.org/www-community/attacks/SQL_Injection
+- OWASP Server Side Request Forgery. https://owasp.org/www-community/attacks/Server_Side_Request_Forgery

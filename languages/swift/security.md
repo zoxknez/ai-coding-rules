@@ -20,3 +20,8 @@
 
 - [Keychain services](https://developer.apple.com/documentation/security/keychain-services)
 - [Agent vulnerabilities](../../docs/security/AGENT_VULNERABILITIES.md)
+
+## Sources
+
+- Apple Platform Security guide. https://support.apple.com/guide/security/welcome/web
+- App Transport Security (ATS) configuration. https://developer.apple.com/documentation/bundleresources/information_property_list/nsapptransportsecurity

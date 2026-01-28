@@ -23,3 +23,11 @@ project/
 │     ├─ kotlin/
 │     └─ resources/
 ```
+
+## Notes
+
+- Gradle Kotlin/JVM projects commonly follow the Maven src/main and src/test layout.
+
+## Sources
+
+- Maven standard directory layout. https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html

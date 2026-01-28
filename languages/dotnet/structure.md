@@ -18,3 +18,7 @@ project/
 │  └─ Project.Domain.Tests/
 └─ README.md
 ```
+
+## Sources
+
+- Microsoft Docs: Common web application architectures (Clean Architecture layers). https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures

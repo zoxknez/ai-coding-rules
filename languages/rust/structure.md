@@ -21,3 +21,7 @@ project/
 ├─ benches/
 └─ examples/
 ```
+
+## Sources
+
+- Cargo package layout conventions. https://doc.rust-lang.org/cargo/guide/project-layout.html

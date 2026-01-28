@@ -20,3 +20,9 @@
 
 - [Rust workspaces](https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html)
 - [Agent vulnerabilities](../../docs/security/AGENT_VULNERABILITIES.md)
+
+## Sources
+
+- Rust book on unsafe Rust. https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html
+- RustSec advisory database. https://rustsec.org/
+- OWASP SQL Injection. https://owasp.org/www-community/attacks/SQL_Injection

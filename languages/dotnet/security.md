@@ -20,3 +20,8 @@
 
 - [Agent vulnerabilities](../../docs/security/AGENT_VULNERABILITIES.md)
 - [Clean Architecture](https://learn.microsoft.com/dotnet/architecture/clean-architecture/)
+
+## Sources
+
+- XML and entity security in .NET (XXE). https://learn.microsoft.com/dotnet/standard/security/xml-and-entity-security
+- .NET secure coding guidelines. https://learn.microsoft.com/dotnet/standard/security/secure-coding-guidelines

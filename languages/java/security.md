@@ -19,3 +19,9 @@
 ## References
 
 - [Agent vulnerabilities](../../docs/security/AGENT_VULNERABILITIES.md)
+
+## Sources
+
+- Oracle Java secure coding guidelines. https://www.oracle.com/java/technologies/javase/seccodeguide.html
+- OWASP SQL Injection. https://owasp.org/www-community/attacks/SQL_Injection
+- OWASP Server Side Request Forgery. https://owasp.org/www-community/attacks/Server_Side_Request_Forgery

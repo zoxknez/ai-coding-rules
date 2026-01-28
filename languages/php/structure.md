@@ -24,3 +24,11 @@ project/
 ├─ tests/
 └─ public/
 ```
+
+## Notes
+
+- Domain and application folders inside app are optional conventions layered on top of Laravel defaults.
+
+## Sources
+
+- Laravel directory structure. https://laravel.com/docs/11.x/structure

@@ -22,3 +22,10 @@
 
 - [Agent vulnerabilities](../../docs/security/AGENT_VULNERABILITIES.md)
 - [Security guardrails](../../docs/operations/SECURITY_GUARDRAILS.md)
+
+## Sources
+
+- Python pickle module security notes. https://docs.python.org/3/library/pickle.html
+- OWASP SQL Injection. https://owasp.org/www-community/attacks/SQL_Injection
+- OWASP Path Traversal. https://owasp.org/www-community/attacks/Path_Traversal
+- PyYAML safe loading guidance. https://pyyaml.org/wiki/PyYAMLDocumentation

@@ -36,6 +36,12 @@ docs/
 | **Quick Checklist** | [quality/QUICK_CHECKLIST.md](quality/QUICK_CHECKLIST.md) |
 | **Reduce AI costs** | [optimization/TOKEN_OPTIMIZATION.md](optimization/TOKEN_OPTIMIZATION.md) |
 
+## Verification
+
+- Ensure links resolve within the repository.
+- Ensure headings use ATX style.
+- Ensure one sentence per line for diffs.
+
 ## By Category
 
 ### 🎯 Core (Required Reading)
@@ -63,6 +69,7 @@ docs/
 
 ### 🧩 Languages (Folder Blueprints)
 - [languages/README.md](../languages/README.md) — **NEW v4.7** Index of language folders
+- Each structure includes a Sources section with authoritative references.
 - [languages/python](../languages/python) — Python structure and security
 - [languages/typescript](../languages/typescript) — TypeScript structure and security
 - [languages/javascript](../languages/javascript) — JavaScript structure and security

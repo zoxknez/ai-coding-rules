@@ -24,3 +24,7 @@ project/
 │  └─ integration/
 └─ scripts/
 ```
+
+## Sources
+
+- Python Packaging User Guide: Packaging Python Projects (src layout). https://packaging.python.org/en/latest/tutorials/packaging-projects/

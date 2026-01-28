@@ -27,3 +27,8 @@ project/
 ├─ public/
 └─ tests/
 ```
+
+## Sources
+
+- Next.js App Router project structure. https://nextjs.org/docs/app/getting-started/project-structure
+- Next.js layouts and pages conventions. https://nextjs.org/docs/app/getting-started/layouts-and-pages
