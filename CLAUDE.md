@@ -16,10 +16,7 @@ This is the **ai-coding-rules** repository — a comprehensive framework for con
 | Layer | Technology |
 |-------|------------|
 | **Documentation** | Markdown, MDC (Cursor rules format) |
-| **Website** | Astro + React + TypeScript |
-| **Styling** | Tailwind CSS |
 | **Package Manager** | pnpm |
-| **Deployment** | Vercel |
 
 ---
 
@@ -27,11 +24,6 @@ This is the **ai-coding-rules** repository — a comprehensive framework for con
 
 | Action | Command |
 |--------|---------|
-| Install dependencies | `pnpm install` |
-| Dev server (website) | `pnpm --filter website dev` |
-| Build (website) | `pnpm --filter website build` |
-| Lint | `pnpm lint` |
-| Type check | `pnpm typecheck` |
 | Sync instructions | `./scripts/sync_instructions.ps1` (Windows) or `./scripts/sync_instructions.sh` (Unix) |
 
 ---
@@ -64,13 +56,6 @@ ai-coding-rules/
 ├── .github/
 │   ├── copilot-instructions.md   # GitHub Copilot config
 │   └── instructions/             # Granular Copilot instructions
-│
-├── website/                 # Astro documentation site
-│   ├── src/
-│   │   ├── pages/
-│   │   ├── components/
-│   │   └── content/rules/   # Rule content files
-│   └── astro.config.mjs
 │
 └── scripts/                 # Automation scripts
     ├── sync_instructions.ps1

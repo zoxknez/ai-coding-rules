@@ -33,4 +33,4 @@
 - Updated sync scripts to include `.github/copilot-instructions.md`.
 - Added MONOREPO_RULES.md as unified single source of truth document.
 - Added LANGUAGE_POLICY.md and documented English-only requirement in CONTRIBUTING and README.
-- Sanitized website environment file to remove real credentials before GitHub push.
+- Removed website folder to focus repository on vibe coding rules only.

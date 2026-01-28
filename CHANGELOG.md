@@ -6,6 +6,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.1.0] - 2026-01-28
+
+### Added — Token Optimization & Modular Architecture
+
+**Problem Addressed:** Community feedback that monolithic rules files cost $50+/day and cause context window overflow.
+
+**New Files:**
+- **TOKEN_OPTIMIZATION.md** — Comprehensive guide to reducing AI costs by 60-90%
+- **RULE_SELECTION.md** — Flowchart for choosing which rules to load per task
+- **RULE_INDEX.md** — Lightweight RAG-friendly lookup table (~200 tokens)
+- **examples/modular-structure/** — Complete example of per-folder rule organization
+
+**Key Improvements:**
+- Modular loading patterns (Cursor .mdc, per-folder .cursorrules)
+- Prompt caching integration (Anthropic best practices)
+- Token budget guidelines per task type
+- Anti-patterns to avoid
+- Cost comparison tables (before/after)
+
+**README Updates:**
+- Added Token Optimization section
+- Updated Repository Structure with new files
+- Added links to new documentation
+
+**Based On:**
+- [Anthropic Prompt Caching Documentation](https://platform.claude.com/docs/en/docs/build-with-claude/prompt-caching)
+- [awesome-cursorrules patterns](https://github.com/PatrickJS/awesome-cursorrules)
+- Community feedback on token costs
+
+---
+
 ## [4.0.0] - 2026-01-27
 
 ### Added — Vibe Coding & AI-Native Enhancement

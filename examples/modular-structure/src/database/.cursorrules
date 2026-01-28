@@ -1,0 +1,17 @@
+# Database Rules (~200 tokens)
+# Inherits: Root rules
+
+## Migrations
+- One change per migration
+- Always add down migration
+- Test rollback before push
+
+## Queries
+- Use parameterized queries (never string concat)
+- Index frequently filtered columns
+- Limit results with pagination
+
+## Schema
+- Soft delete with deleted_at
+- Add created_at, updated_at
+- Use UUIDs for public IDs

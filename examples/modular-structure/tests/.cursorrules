@@ -1,0 +1,17 @@
+# Testing Rules (~200 tokens)
+# Inherits: Root rules
+
+## Test Structure
+- Arrange → Act → Assert
+- One assertion per test (when practical)
+- Descriptive test names
+
+## Coverage
+- Test happy path first
+- Add edge cases: empty, null, max values
+- Test error conditions
+
+## Mocking
+- Mock external dependencies
+- Don't mock what you own
+- Use factories for test data

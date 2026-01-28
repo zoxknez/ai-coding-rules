@@ -1,0 +1,17 @@
+# Backend/API Rules (~200 tokens)
+# Inherits: Root rules
+
+## API Patterns
+- Validate all inputs with Zod
+- Return consistent { data, error } envelope
+- Use proper HTTP status codes
+
+## Error Handling
+- Never expose internal errors to client
+- Log errors with context
+- Graceful degradation
+
+## Security
+- Authenticate before processing
+- Authorize per-resource
+- Rate limit public endpoints

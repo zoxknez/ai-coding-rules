@@ -1,0 +1,22 @@
+# Auth/Security Rules (~250 tokens)
+# Inherits: Root rules
+
+## Authentication
+- Never store plain passwords
+- Use secure session tokens
+- Implement proper logout (invalidate server-side)
+
+## Authorization
+- Check permissions per-request
+- Use RBAC or ABAC patterns
+- Fail closed (deny by default)
+
+## Secrets
+- Environment variables only
+- Never log sensitive data
+- Rotate credentials regularly
+
+## Validation
+- Validate on server (never trust client)
+- Sanitize all user input
+- Use allowlists over denylists

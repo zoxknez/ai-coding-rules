@@ -1,0 +1,17 @@
+# React Component Rules (~200 tokens)
+# Inherits: Root rules
+
+## Patterns
+- RSC by default; 'use client' only for hooks
+- Props interface above component
+- Destructure props in function signature
+
+## Styling
+- Tailwind for utility classes
+- cn() for conditional classes
+- No inline styles
+
+## State
+- useState for local UI state
+- Server actions for mutations
+- useOptimistic for pending UI

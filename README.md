@@ -80,7 +80,12 @@ ai-coding-rules/
 ├── 🤖 AGENTS.md                  # Agent operating rules (template)
 ├── ✅ TASK_LIST.md               # Task tracking (template)
 │
-├── 🔴 Core Rules
+├── � Token Optimization (NEW!)
+│   ├── TOKEN_OPTIMIZATION.md     # Cost reduction strategies
+│   ├── RULE_SELECTION.md         # Flowchart for choosing rules
+│   └── RULE_INDEX.md             # RAG-friendly lightweight index
+│
+├── �🔴 Core Rules
 │   ├── global_rules.md           # Operating principles
 │   ├── ai_model_contract.md      # Behavioral contract
 │   ├── cognitive_protocols.md    # Confusion/pushback handling
@@ -129,7 +134,10 @@ ai-coding-rules/
 
 ├── �🧪 Canonical Prompt Source
 │   └── prompts/vibe-coding-instructions.md
-
+│
+├── 📁 Examples (NEW!)
+│   └── examples/modular-structure/  # Per-folder rule organization
+│
 ├── 🧹 Guardrails
 │   └── ANTI_SLOP_GUARDRAILS.md
 
@@ -147,7 +155,44 @@ ai-coding-rules/
 
 ---
 
-## 💡 Key Insights
+## � Token Optimization & Cost Reduction
+
+**Problem:** Monolithic rules files can cost $50+/day for heavy users.  
+**Solution:** Modular loading + prompt caching = 60-90% cost reduction.
+
+### Quick Start
+
+| Approach | Token Cost | Use Case |
+|----------|------------|----------|
+| Core only | ~500 | Quick fixes, simple tasks |
+| Core + 1 stack | ~1,000 | Single-domain features |
+| Core + 2 stacks | ~1,500 | Cross-domain work |
+| Full MASTER_RULES | ~8,000 | Reference only (don't load daily) |
+
+### Implementation Options
+
+1. **Cursor `.mdc` files** — Use `globs` for automatic conditional loading
+2. **Per-folder `.cursorrules`** — Minimal rules per directory
+3. **RAG-style index** — AI fetches rules on-demand
+
+### Key Documents
+
+| Document | Purpose |
+|----------|---------|
+| [**TOKEN_OPTIMIZATION.md**](./TOKEN_OPTIMIZATION.md) | Full cost reduction guide |
+| [**RULE_SELECTION.md**](./RULE_SELECTION.md) | Flowchart for choosing rules |
+| [**context_management.md**](./context_management.md) | How to pack context efficiently |
+
+### Prompt Caching (Anthropic)
+
+- Cache read tokens cost **10%** of normal input
+- Place stable rules at prompt start
+- Use `cache_control` breakpoints for 5-min or 1-hour caching
+- See [Anthropic docs](https://platform.claude.com/docs/en/docs/build-with-claude/prompt-caching)
+
+---
+
+## �💡 Key Insights
 
 ### The Phase Shift (Karpathy, Jan 2026)
 
