@@ -1,12 +1,6 @@
 # Python
 
-> Interface-first layout for FastAPI and Django projects.
-
-## Why This Structure
-
-- Pydantic schemas act as explicit contracts for agents.
-- Services layer isolates business logic from transport concerns.
-- Models layer keeps ORM details separate from schemas.
+> src layout with explicit layers.
 
 ## Files
 

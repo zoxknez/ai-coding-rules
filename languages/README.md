@@ -1,49 +1,43 @@
 # Languages
 
-> Machine-readable structures for each programming language.
+> Machine-readable folder blueprints per language.
 
 ## Goals
 
-- Provide a canonical folder structure per language.
+- Provide a canonical structure per language.
 - Reduce context ambiguity for AI agents.
-- Encode schema-first design and explicit boundaries.
+- Keep layouts copy-paste ready.
 
 ## Included Languages
 
 | Language | Folder | Focus |
 |---|---|---|
-| Python | [languages/python](python) | FastAPI/Django patterns, Pydantic-first schemas |
-| TypeScript | [languages/typescript](typescript) | Next.js/React FSD layout |
-| JavaScript | [languages/javascript](javascript) | React/Node module boundaries |
-| Go | [languages/go](go) | Standard Go project layout and internal boundary |
-| Rust | [languages/rust](rust) | Cargo workspaces and crate boundaries |
-| .NET | [languages/dotnet](dotnet) | Clean Architecture with DDD layering |
-| Java | [languages/java](java) | Modular packages and service boundaries |
-| Kotlin | [languages/kotlin](kotlin) | Android Clean Architecture layout |
-| Swift | [languages/swift](swift) | iOS feature modularization |
-| PHP | [languages/php](php) | Laravel-style layering and DTOs |
-| Ruby | [languages/ruby](ruby) | Rails-ish domain boundaries |
-| Dart | [languages/dart](dart) | Flutter feature modules and state separation |
-| C | [languages/c](c) | Explicit include and src boundaries |
-| C++ | [languages/cpp](cpp) | Modern C++ layout with RAII |
+| Python | [languages/python](python) | src layout with domain and application |
+| JavaScript | [languages/javascript](javascript) | Node.js service layout |
+| TypeScript | [languages/typescript](typescript) | Backend and full-stack layout |
+| Next.js | [languages/nextjs](nextjs) | App Router 2026 layout |
+| Go | [languages/go](go) | cmd + internal layout |
+| Rust | [languages/rust](rust) | Cargo layout |
+| .NET | [languages/dotnet](dotnet) | Clean Architecture layout |
+| Java | [languages/java](java) | Maven/Gradle package layout |
+| Kotlin | [languages/kotlin](kotlin) | JVM layout with layers |
+| Swift | [languages/swift](swift) | SPM layout |
+| PHP | [languages/php](php) | Laravel-style layout |
+| Ruby | [languages/ruby](ruby) | Gem layout |
+| Dart | [languages/dart](dart) | Flutter layout |
+| C | [languages/c](c) | include/src layout |
+| C++ | [languages/cpp](cpp) | CMake layout |
 
 ## Folder Contract
 
 Each language folder contains:
 
-- README.md: Summary, purpose, and links.
-- structure.md: Canonical folder and file layout.
-- security.md: Top agent-induced vulnerabilities and mitigations.
+- README.md: Summary and links.
+- structure.md: Canonical folder layout.
+- security.md: Top agent-induced risks and mitigations.
 
 ## How To Use
 
 - Pick your language folder.
-- Apply the structure in new projects or refactor existing ones gradually.
+- Apply the structure in new projects or refactor gradually.
 - Reference security.md in platform rules and ADRs.
-
-## How To Add Another Language
-
-1. Create a new folder under languages/.
-2. Add README.md, structure.md, and security.md.
-3. Update this index table.
-4. Link the new folder from docs/README.md.

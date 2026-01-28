@@ -1,12 +1,6 @@
 # TypeScript
 
-> Feature-sliced layout for Next.js and React.
-
-## Why This Structure
-
-- Features colocate UI, hooks, and actions.
-- App router stays thin and routing-only.
-- Schema-first types guide agent output.
+> Backend and full-stack layout with explicit layers.
 
 ## Files
 

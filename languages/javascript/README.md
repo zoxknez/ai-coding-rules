@@ -1,12 +1,6 @@
 # JavaScript
 
-> Modular layout for Node.js and React.
-
-## Why This Structure
-
-- Clear separation of routes, controllers, and services.
-- Schemas enforce validation for agent output.
-- Shared utilities stay isolated from features.
+> Node.js layout with explicit layers.
 
 ## Files
 

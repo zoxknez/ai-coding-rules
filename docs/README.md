@@ -66,6 +66,7 @@ docs/
 - [languages/python](../languages/python) — Python structure and security
 - [languages/typescript](../languages/typescript) — TypeScript structure and security
 - [languages/javascript](../languages/javascript) — JavaScript structure and security
+- [languages/nextjs](../languages/nextjs) — Next.js App Router structure and security
 - [languages/go](../languages/go) — Go structure and security
 - [languages/rust](../languages/rust) — Rust structure and security
 - [languages/dotnet](../languages/dotnet) — .NET structure and security

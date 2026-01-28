@@ -146,6 +146,7 @@ ai-coding-rules/
 │   ├── python/                     # Python folder blueprint
 │   ├── typescript/                 # TypeScript folder blueprint
 │   ├── javascript/                 # JavaScript folder blueprint
+│   ├── nextjs/                     # Next.js folder blueprint
 │   ├── go/                         # Go folder blueprint
 │   ├── rust/                       # Rust folder blueprint
 │   ├── dotnet/                     # .NET folder blueprint

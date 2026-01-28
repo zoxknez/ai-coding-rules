@@ -6,6 +6,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.8.0] - 2026-01-28
+
+### Changed — Language Structure Blueprints 2026
+
+**Problem Addressed:** Align language folders to the 2026 AI-first structure patterns.
+
+#### Updated Structures
+
+- Python: src layout with domain, application, infrastructure, api, and shared.
+- JavaScript: layered Node.js structure with domain and application.
+- TypeScript: layered backend and full-stack structure.
+- Go: cmd + internal with explicit layers and api handlers.
+- Rust: Cargo layout with domain, application, infrastructure, and api.
+- Java: Maven layout with config, domain, application, infrastructure, and api.
+- .NET: Clean Architecture solution layout with separate projects.
+- PHP: Laravel-style layered layout.
+- Swift: SPM layout with App, Domain, Application, Infrastructure, Shared.
+- Kotlin: Gradle JVM layout with layers.
+- Ruby: Gem layout with lib and spec.
+- C++: CMake layout with include, src, tests, examples, scripts.
+
+#### Added
+
+- Next.js folder blueprint for App Router 2026.
+
+#### Documentation Updates
+
+- Updated [languages/README.md](languages/README.md) index.
+- Updated [docs/README.md](docs/README.md) language links.
+- Updated [README.md](README.md) repository structure list.
+
 ## [4.7.0] - 2026-01-28
 
 ### Added — Language Folder Blueprints

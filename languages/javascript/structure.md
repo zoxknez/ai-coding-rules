@@ -1,32 +1,24 @@
 # JavaScript Structure
 
-> Modular layout for API and web projects.
+> Node.js layout with domain and application layers.
 
 ## Canonical Layout
 
 ```text
-project-root/
-├── src/
-│   ├── routes/
-│   ├── controllers/
-│   ├── services/
-│   ├── schemas/
-│   ├── models/
-│   ├── middleware/
-│   └── index.js
-├── tests/
-└── package.json
+project/
+├─ package.json
+├─ README.md
+├─ .env.example
+├─ src/
+│  ├─ index.js
+│  ├─ config/
+│  ├─ domain/
+│  ├─ application/
+│  ├─ infrastructure/
+│  ├─ api/
+│  │  ├─ routes/
+│  │  └─ controllers/
+│  └─ shared/
+├─ tests/
+└─ scripts/
 ```
-
-## Agent Workflow
-
-1. Define request/response schemas in src/schemas.
-2. Implement business logic in src/services.
-3. Keep controllers thin and call services.
-4. Route files only compose controllers.
-
-## Boundary Rules
-
-- Controllers must not access database directly.
-- Services must not import routes.
-- Schemas must not import models.

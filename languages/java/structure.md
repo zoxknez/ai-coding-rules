@@ -1,33 +1,24 @@
 # Java Structure
 
-> Layered packages with explicit boundaries.
+> Maven or Gradle standard layout with layers.
 
 ## Canonical Layout
 
 ```text
-project-root/
-├── src/
-│   ├── main/
-│   │   ├── java/com/example/app/
-│   │   │   ├── domain/
-│   │   │   ├── application/
-│   │   │   ├── infrastructure/
-│   │   │   └── presentation/
-│   │   └── resources/
-│   └── test/
-│       └── java/com/example/app/
-└── pom.xml
+project/
+├─ pom.xml
+├─ README.md
+├─ src/
+│  ├─ main/
+│  │  ├─ java/com/example/app/
+│  │  │  ├─ Application.java
+│  │  │  ├─ config/
+│  │  │  ├─ domain/
+│  │  │  ├─ application/
+│  │  │  ├─ infrastructure/
+│  │  │  └─ api/
+│  │  └─ resources/
+│  └─ test/
+│     ├─ java/
+│     └─ resources/
 ```
-
-## Agent Workflow
-
-1. Define domain types and interfaces in domain/.
-2. Implement use cases in application/.
-3. Wire adapters in infrastructure/.
-4. Expose controllers in presentation/.
-
-## Boundary Rules
-
-- domain must not depend on infrastructure.
-- presentation must not bypass application.
-- data mapping happens at application boundaries.

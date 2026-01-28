@@ -1,32 +1,18 @@
 # Ruby Structure
 
-> Rails-like layout with clear service boundaries.
+> Gem layout with minimal folders.
 
 ## Canonical Layout
 
 ```text
-project-root/
-├── app/
-│   ├── controllers/
-│   ├── models/
-│   ├── services/
-│   ├── policies/
-│   └── serializers/
-├── config/
-├── db/
-│   └── migrations/
-└── spec/
+project/
+├─ my_gem.gemspec
+├─ Gemfile
+├─ README.md
+├─ lib/
+│  ├─ my_gem.rb
+│  └─ my_gem/
+│     └─ version.rb
+├─ bin/
+└─ spec/
 ```
-
-## Agent Workflow
-
-1. Add validation and strong params in controllers.
-2. Implement business logic in services.
-3. Use policies for authorization.
-4. Keep models focused on persistence only.
-
-## Boundary Rules
-
-- Controllers must not implement business rules.
-- Services must not render HTTP responses.
-- Policies must be enforced before mutations.
