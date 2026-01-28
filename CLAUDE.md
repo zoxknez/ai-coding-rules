@@ -184,5 +184,48 @@ I will:
 
 ---
 
-*Last Updated: 2026-01-28*
-*Version: 1.0*
+## 📜 Modular Rules
+
+This repository uses `.claude/rules/*.md` for path-specific instructions:
+
+| Rule File | Applies To |
+|-----------|------------|
+| `security.md` | `**/auth/**, **/security/**` |
+| `frontend.md` | `**/*.tsx, **/*.jsx` |
+| `backend.md` | `**/api/**, **/server/**` |
+| `database.md` | `**/prisma/**, **/*.sql` |
+| `testing.md` | `**/*.test.*, **/*.spec.*` |
+
+Rules use YAML frontmatter with `paths` field for conditional loading.
+
+---
+
+## 🔧 Recommended Permissions
+
+Add to `.claude/settings.json`:
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(pnpm *)",
+      "Bash(git diff *)",
+      "Bash(git status)",
+      "Bash(git log *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  }
+}
+```
+
+---
+
+*Last Updated: 2025-01-28*
+*Version: 2.0*

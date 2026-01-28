@@ -1,0 +1,47 @@
+# Codeium/Windsurf Ignore File
+# Files matching these patterns are excluded from AI analysis
+
+# Secrets and sensitive files
+.env
+.env.*
+.env.local
+.env.*.local
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Dependencies
+node_modules/
+vendor/
+.venv/
+venv/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+.nuxt/
+.output/
+
+# Cache and logs
+*.log
+.cache/
+.turbo/
+.parcel-cache/
+
+# Lock files (large, rarely useful for AI)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+Cargo.lock
+poetry.lock
+
+# IDE and OS files
+.idea/
+.vscode/settings.json
+*.swp
+.DS_Store
+Thumbs.db

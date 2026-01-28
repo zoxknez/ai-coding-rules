@@ -6,7 +6,49 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [4.1.0] - 2026-01-28
+## [4.2.0] - 2025-01-28
+
+### Added — Multi-Platform AI Assistant Support
+
+**Problem Addressed:** Repository only had comprehensive Cursor support; other platforms (Copilot, Claude Code, Windsurf) needed full integration.
+
+**GitHub Copilot Enhancements:**
+- **Updated `.github/copilot-instructions.md`** with terminal command warning (critical bug)
+- **New `.github/instructions/testing.instructions.md`** — Testing rules with AAA pattern
+- **New `.github/instructions/security.instructions.md`** — Security-critical code rules
+- **New `.github/instructions/python.instructions.md`** — Python best practices
+- **New `.github/instructions/docs.instructions.md`** — Documentation standards
+
+**Claude Code Enhancements:**
+- **Expanded `CLAUDE.md`** with modular rules reference and permissions config
+- **New `.claude/rules/`** directory with path-specific rules:
+  - `security.md` — Security-critical patterns
+  - `frontend.md` — React/component rules
+  - `backend.md` — API/server patterns
+  - `testing.md` — Test conventions
+  - `database.md` — SQL/ORM patterns
+
+**Windsurf Integration (NEW):**
+- **New `.windsurf/memory.md`** — Main memory file for Cascade
+- **New `.windsurf/cascade-config.md`** — Tips and shortcuts
+- **New `.windsurf/rules/`** — Modular rule files
+- **New `.codeiumignore`** — Exclude sensitive/large files from AI
+
+**Cursor Expansion:**
+- **New `.cursor/rules/71-git-workflow.mdc`** — Git conventions and commit messages
+- **New `.cursor/rules/72-refactoring.mdc`** — Refactoring guidelines
+- **New `.cursor/rules/73-error-handling.mdc`** — Error handling patterns
+- **New `.cursor/rules/74-api-design.mdc`** — RESTful API design rules
+
+**Documentation:**
+- **New `AI_ASSISTANTS.md`** — Comprehensive integration guide for all platforms
+
+**Known Issues Documented:**
+- ⚠️ GitHub Copilot terminal command execution bug (runs commands in occupied terminals)
+
+---
+
+## [4.1.0] - 2025-01-28
 
 ### Added — Token Optimization & Modular Architecture
 
