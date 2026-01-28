@@ -32,52 +32,58 @@ This is the **ai-coding-rules** repository — a comprehensive framework for con
 
 ```
 ai-coding-rules/
-├── MASTER_RULES.md          # Central rules document (Golden Rule, Three-Phase Pattern)
-├── CLAUDE.md                # This file - Claude Code context
-├── global_rules.md          # Operating principles for all agents
-├── security_privacy.md      # Security guardrails (non-negotiable)
-├── cognitive_protocols.md   # Thinking patterns and decision-making
-├── project_profile.md       # Template for project-specific config
+├── CLAUDE.md                     # This file - Claude Code context
+├── README.md                     # Project overview
+├── CHANGELOG.md                  # Version history
 │
-├── Stack Guides
-│   ├── stack_frontend.md    # React/Next.js/TypeScript
-│   ├── stack_backend.md     # Node.js/Express/Nest
-│   ├── stack_db.md          # SQL/ORM/Migrations
-│   ├── stack_python.md      # Python
-│   └── stack_rust.md        # Rust
+├── docs/                         # 📚 Organized documentation
+│   ├── core/                     # 🎯 Essential rules
+│   │   ├── MASTER_RULES.md       # Central rules (Golden Rule, Three-Phase)
+│   │   ├── global_rules.md       # Operating principles
+│   │   ├── STRICT_MODE.md        # Non-negotiable rules
+│   │   └── UNIVERSAL_RULE_FORMAT.md
+│   │
+│   ├── stacks/                   # 🔵 Technology guides
+│   │   ├── stack_frontend.md     # React/Next.js/TypeScript
+│   │   ├── stack_backend.md      # Node.js/Express/Nest
+│   │   ├── stack_db.md           # SQL/ORM/Migrations
+│   │   ├── stack_python.md       # Python
+│   │   └── stack_rust.md         # Rust
+│   │
+│   ├── workflows/                # 🟡 Agent patterns
+│   ├── operations/               # ⚪ Security & ops
+│   ├── quality/                  # 🟢 Reviews & metrics
+│   └── optimization/             # 💰 Token costs
 │
-├── .cursor/rules/           # Modular Cursor rules (MDC format)
-│   ├── 00-global.mdc        # Always-on global rules
-│   ├── 20-security-privacy.mdc
-│   ├── 60-stack-frontend.mdc
-│   ├── 63-stack-db.mdc
-│   └── ...
+├── .cursor/rules/                # Modular Cursor rules (19 .mdc files)
 │
 ├── .claude/
 │   ├── rules/                    # Path-specific rules
-│   │   ├── security.md           # Security patterns
-│   │   ├── frontend.md           # React/component rules
-│   │   ├── backend.md            # API patterns
-│   │   ├── testing.md            # Test conventions
-│   │   └── database.md           # SQL/ORM patterns
-│   └── skills/                   # Structured output templates (NEW!)
-│       ├── code-review.md        # Code review simulation
-│       ├── security-audit.md     # OWASP security scanning
-│       ├── refactor-plan.md      # Strategic refactoring
-│       └── rigor-audit.md        # Combined quality audit
+│   │   ├── security.md
+│   │   ├── frontend.md
+│   │   ├── backend.md
+│   │   ├── testing.md
+│   │   └── database.md
+│   └── skills/                   # Structured output templates
+│       ├── code-review.md
+│       ├── security-audit.md
+│       ├── refactor-plan.md
+│       └── rigor-audit.md
 │
 ├── .github/
-│   ├── copilot-instructions.md   # GitHub Copilot config
-│   └── instructions/             # Granular Copilot instructions
+│   ├── copilot-instructions.md
+│   └── instructions/
 │
-└── scripts/                 # Automation scripts
-    ├── sync_instructions.ps1
-    └── sync_instructions.sh
+├── .windsurf/                    # Windsurf/Cascade config
+│
+├── examples/rule-tests/          # Rule verification tests
+│
+└── scripts/                      # Automation scripts
 ```
 
 ---
 
-## 🎯 Skills System (NEW!)
+## 🎯 Skills System
 
 Use structured skills for consistent outputs:
 

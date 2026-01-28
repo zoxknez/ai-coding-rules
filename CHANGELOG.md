@@ -6,6 +6,44 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.4.0] - 2025-01-28
+
+### Changed — Repository Reorganization
+
+**Problem Addressed:** Root directory had 40+ files making navigation difficult.
+
+**New Structure:**
+Reorganized documentation into `docs/` with logical categories:
+
+```
+docs/
+├── core/           # 🎯 Essential rules (MASTER_RULES, global_rules, STRICT_MODE)
+├── stacks/         # 🔵 Technology guides (frontend, backend, db, python, rust)
+├── workflows/      # 🟡 Agent patterns (task_template, agent_loop, MEMORY_BANK)
+├── operations/     # ⚪ Security & ops (security_privacy, incident_response)
+├── quality/        # 🟢 Reviews (quality_control, code_review_rubric)
+└── optimization/   # 💰 Token costs (TOKEN_OPTIMIZATION, RULE_INDEX)
+```
+
+**Files Moved:**
+- 7 files → `docs/core/`
+- 5 files → `docs/stacks/`
+- 7 files → `docs/workflows/`
+- 7 files → `docs/operations/`
+- 4 files → `docs/quality/`
+- 3 files → `docs/optimization/`
+
+**Added:**
+- `docs/README.md` — Documentation index with quick links
+- README.md for each subfolder with contents and usage
+
+**Root Directory Now Contains:**
+- Platform configs only (CLAUDE.md, cursor-rules.md, etc.)
+- Meta files (README, CHANGELOG, CONTRIBUTING, LICENSE)
+- Platform-specific folders (.cursor/, .claude/, .github/, .windsurf/)
+
+---
+
 ## [4.3.0] - 2025-01-28
 
 ### Added — Skills System, Universal Rule Format & STRICT Mode

@@ -18,6 +18,11 @@
 - 
 
 ## Recent Changes
+- **v4.4.0:** Repository reorganization:
+  - Moved 33 files from root to organized `docs/` structure
+  - Created 6 category folders: core, stacks, workflows, operations, quality, optimization
+  - Added README.md to each folder with contents and usage
+  - Root now contains only platform configs and meta files
 - **v4.3.0:** Added Skills System, Universal Rule Format, and STRICT Mode:
   - Skills System: `.claude/skills/` with code-review, security-audit, refactor-plan, rigor-audit
   - Universal Rule Format: `UNIVERSAL_RULE_FORMAT.md` for cross-platform rules (RDL spec)
