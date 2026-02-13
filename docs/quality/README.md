@@ -10,6 +10,11 @@
 | [code_review_rubric.md](code_review_rubric.md) | PR checklist |
 | [evaluation_benchmarks.md](evaluation_benchmarks.md) | Measuring AI effectiveness |
 | [MONOREPO_RULES.md](MONOREPO_RULES.md) | Monorepo patterns |
+| [testing_strategy.md](testing_strategy.md) | Testing pyramid, TDD, coverage |
+| [ACCESSIBILITY.md](ACCESSIBILITY.md) | WCAG compliance, A11Y patterns |
+| [REFACT_METHODOLOGY.md](REFACT_METHODOLOGY.md) | R.E.F.A.C.T. refactoring method |
+| [DATA_VALIDATION_PATTERNS.md](DATA_VALIDATION_PATTERNS.md) | Input validation, sanitization, schemas |
+| [NAMING_CONVENTIONS.md](NAMING_CONVENTIONS.md) | Naming rules across languages |
 
 ## Code Review Process
 

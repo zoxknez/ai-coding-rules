@@ -11,6 +11,7 @@
 | [stack_db.md](stack_db.md) | SQL, Prisma, Drizzle | Database work |
 | [stack_python.md](stack_python.md) | Python, FastAPI, Django | Python projects |
 | [stack_rust.md](stack_rust.md) | Rust, Cargo | Rust development |
+| [ROLE_BUNDLES.md](ROLE_BUNDLES.md) | Role-based rule sets | Choosing which rules to load |
 
 ## Usage
 

@@ -6,6 +6,81 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [5.0.0] - 2025-06-25
+
+### Added — Architecture, Security & Quality Expansion
+
+Comprehensive quality audit and expansion based on external source research
+(awesome-cursorrules, cursor.directory, aicodingrules.org, Google Gemini strategies).
+
+#### New Documents (8 files)
+
+- **docs/architecture/API_DESIGN_PATTERNS.md** — REST URL structure, HTTP status codes, error/success envelopes, pagination (offset/cursor/keyset), filtering, versioning, auth, rate limiting, GraphQL patterns, gRPC patterns, CORS, idempotency
+- **docs/architecture/CACHING_STRATEGIES.md** — Cache decision framework, 4 cache layers (in-memory, Redis, HTTP/CDN, DB query), cache key design, invalidation strategies (TTL, write-through, write-behind, event-driven), stampede prevention, negative caching, monitoring
+- **docs/architecture/README.md** — Architecture section index
+- **docs/workflows/GIT_WORKFLOW.md** — Branching strategies (trunk-based, GitHub Flow, Git Flow), conventional commits, AI-specific diff budgets, PR template, merge strategies, pre-commit hooks
+- **docs/security/PROMPT_INJECTION_DEFENSE.md** — Threat model, direct/indirect injection prevention, tool call safety (allowlist, validation, human-in-the-loop), output safety, monitoring, agentic loop safety, defense-in-depth checklist
+- **docs/security/README.md** — Security section index
+- **docs/quality/DATA_VALIDATION_PATTERNS.md** — Validation architecture, schema validation (Zod/Pydantic), sanitization (XSS, SQLi, path traversal), DTO/mapper patterns, environment validation, file upload validation, serialization safety
+- **docs/quality/NAMING_CONVENTIONS.md** — Universal naming principles, language-specific conventions (TS/JS, Python, Go, Rust, C#), file/directory naming, database naming, API naming, anti-patterns
+
+#### Expanded Documents (7 files)
+
+- **docs/stacks/stack_python.md** — Expanded from 33 to ~380 lines: project structure, type hints, error handling, async/concurrency, SQLAlchemy, FastAPI, data science/ML, packaging, tooling, security
+- **docs/stacks/stack_rust.md** — Expanded from 29 to ~380 lines: Cargo workspace, error handling (thiserror/anyhow), ownership & lifetimes, async (Tokio), HTTP (Axum), database (SQLx), observability (tracing), unsafe rules, property-based testing
+- **docs/operations/incident_response.md** — Expanded from ~15 to ~200 lines: severity classification (SEV-1 to SEV-4), 4-phase playbook, postmortem template, common AI bug patterns, escalation matrix
+- **docs/operations/team_workflows.md** — Expanded from ~20 to ~200 lines: PR template with AI disclosure, size guidelines, branch protection, AI-specific review checklist, prompt cookbook, mistake log, onboarding, metrics
+- **docs/operations/tool_integration.md** — Expanded from ~18 to ~220 lines: ideal toolchain loop, IDE setup, pre-commit automation, CI pipeline gates, tool selection guidance, monitoring integration, automation checklist
+- **docs/operations/SECURITY_PRIVACY_BASELINE.md** — Expanded from ~15 to ~300 lines: 9 MUST rules with code examples, OWASP Top 10 mapping, privacy requirements, data classification, encryption standards, dependency security, security headers, AI agent security rules, compliance reference
+- **docs/workflows/AGENTS.md** — Expanded from ~18 to ~250 lines: agent initialization sequence, operating principles, assumptions ledger, task execution flow, simplify pass, multi-agent coordination, communication standards, quality gates
+
+### Changed
+
+- **docs/operations/README.md** — Added references to expanded incident_response, team_workflows, tool_integration, SECURITY_GUARDRAILS
+- **docs/workflows/README.md** — Added reference to GIT_WORKFLOW, updated AGENTS description
+- **docs/quality/README.md** — Added references to DATA_VALIDATION_PATTERNS, NAMING_CONVENTIONS
+- **README.md** — Updated repository structure tree with all new and expanded files, added v5.0.0 to version table
+
+### Research Sources
+
+- [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) — 37.8K stars, community rule patterns
+- [cursor.directory](https://cursor.directory) — 10K+ shared cursor rules
+- [aicodingrules.org](https://aicodingrules.org) — Cisco RDL standard, YAML+Markdown hybrid
+- Google Gemini prompting strategies — agentic workflow dimensions
+
+---
+
+## [4.9.0] - 2025-06-25
+
+### Added — Major Content Expansion
+
+Comprehensive expansion inspired by [antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) analysis plus original contributions.
+
+#### New Documents (10 files)
+
+- **docs/quality/testing_strategy.md** — Complete testing pyramid (70/20/10), TDD protocol, framework recommendations by stack, mocking strategy, AI-specific testing rules
+- **docs/workflows/WORKFLOW_PLAYBOOKS.md** — 6 step-by-step playbooks: Ship Feature, Debug Production, Security Audit, Architecture Refactor, Build AI Agent, New Project Bootstrap
+- **docs/operations/OBSERVABILITY.md** — Three pillars (logs/metrics/traces), structured logging, Four Golden Signals (Google SRE), OpenTelemetry, performance budgets, alerting
+- **docs/operations/CI_CD_PIPELINE.md** — Pre-commit hooks, PR pipeline (8 checks), GitHub Actions example, deployment strategy, rollback, DB migration safety, feature flags, secrets management
+- **docs/core/AI_MODEL_SELECTION.md** — Decision matrix, 3-tier model guide (Frontier/Fast/Specialized), task-to-model mapping, cost optimization, model-specific quirks
+- **docs/operations/ERROR_HANDLING.md** — Error classification, response envelope, error hierarchy, retry patterns, circuit breaker, graceful degradation, frontend error handling
+- **docs/workflows/DEBUGGING_PROTOCOL.md** — RAPID framework (Reproduce/Analyze/Pinpoint/Implement/Defend), bisect strategy, layer isolation, common root causes
+- **docs/workflows/MULTI_AGENT.md** — Agent roles (Architect/Implementer/Reviewer/Tester), 4 orchestration patterns, handoff format, conflict resolution, token budget
+- **docs/architecture/decisions/ADR_TEMPLATE_AND_EXAMPLES.md** — ADR template + 2 example ADRs (declarative rules, non-overridable security)
+- **docs/stacks/ROLE_BUNDLES.md** — Role-based rule bundles for Frontend, Backend, Full-Stack, Security, DevOps, Tech Lead, QA, New Project
+- **docs/quality/ACCESSIBILITY.md** — WCAG 2.2 AA, semantic HTML, keyboard nav, color contrast, forms, ARIA, AI-specific A11Y checklist
+
+### Changed
+
+- **docs/operations/ANTI_SLOP_GUARDRAILS.md** — Expanded from 9 lines to comprehensive guide with forbidden patterns, dependency approval protocol, anti-hallucination rules, verification checklist
+- **docs/operations/README.md** — Added references to OBSERVABILITY, CI_CD_PIPELINE, ERROR_HANDLING
+- **docs/workflows/README.md** — Added references to WORKFLOW_PLAYBOOKS, DEBUGGING_PROTOCOL, MULTI_AGENT
+- **docs/quality/README.md** — Added references to testing_strategy, ACCESSIBILITY
+- **docs/stacks/README.md** — Added reference to ROLE_BUNDLES
+- **README.md** — Updated repository structure tree with all new files
+
+---
+
 ## [4.8.1] - 2026-01-28
 
 ### Changed — Source Citations for Language Structures
